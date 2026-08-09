@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TankLogic - Modular Tank Production Software</title>
+    <meta name="description" content="TankLogic is the business app for modular tank manufacturers—configure tanks, generate BOMs, and create quotes on mobile, tablet, and web.">
+    <link rel="canonical" href="https://www.uncerta.dev/tanklogic/">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../images/icon-192.png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    
+    <!-- Prevent theme flash: system default, manual override via localStorage -->
+    <script>
+        (function () {
+            var stored = localStorage.getItem('theme');
+            var preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var useDark = stored === 'dark' || (stored !== 'light' && preferDark);
+            document.documentElement.classList.toggle('dark', useDark);
+        })();
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            900: '#164e63',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Light mode grid pattern */
+        .bg-grid {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Dark mode grid pattern override */
+        .dark .bg-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Ambient Glow Effect */
+        .glow-cyan {
+            box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.15);
+        }
+
+        .dark .glow-cyan {
+            box-shadow: 0 0 50px -10px rgba(6, 182, 212, 0.25);
+        }
+        
+        .glow-card {
+            transition: all 0.3s ease;
+        }
+        
+        .glow-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .dark .glow-card:hover {
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.2);
+            border-color: rgba(6, 182, 212, 0.4);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-slate-50 text-slate-900 dark:bg-[#080a0f] dark:text-[#f1f5f9] selection:bg-cyan-500 selection:text-black relative overflow-x-hidden min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+    <!-- Ambient Gradient Backgrounds -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="fixed -top-40 -left-40 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed top-1/2 -right-40 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-[#080a0f]/80 border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="../images/logo.png" alt="TankLogic" width="40" height="40" class="w-10 h-10 rounded-xl shadow-lg shadow-orange-500/25 group-hover:scale-105 transition-transform">
+                <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white font-mono">
+                    Tank<span class="text-cyan-600 dark:text-cyan-400">Logic</span>
+                </span>
+            </a>
+
+            <!-- Navigation Links & Theme Switcher -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a>
+                <a href="#features" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Features</a>
+                <a href="#overview" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">System Overview</a>
+                <a href="support.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Support</a>
+                <a href="privacy_policy.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Terms of Use</a>
+                
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all">
+                    <!-- Sun Icon (shows in Dark mode) -->
+                    <svg id="theme-toggle-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <!-- Moon Icon (shows in Light mode) -->
+                    <svg id="theme-toggle-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Action Controls -->
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+                    <svg id="theme-toggle-sun-mobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg id="theme-toggle-moon-mobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+
+                <button id="menu-btn" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-[#0c0e17] border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex-col gap-4 text-sm font-medium">
+            <a href="../" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Uncerta Dev</a>
+            <a href="#features" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Features</a>
+            <a href="#overview" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">System Overview</a>
+            <a href="support.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Support</a>
+            <a href="privacy_policy.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Privacy Policy</a>
+            <a href="terms_of_use.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Terms of Use</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative z-10">
+        <section class="pt-16 pb-20 md:pt-24 md:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 backdrop-blur-md mb-8">
+                    <span class="w-2 h-2 rounded-full bg-cyan-600 dark:bg-cyan-400 animate-pulse"></span>
+                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300">Modular Tank Manufacturing Suite</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+                    Digital Control in <br class="hidden sm:inline" />
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400">
+                        Modular Tanks
+                    </span>
+                </h1>
+
+                <!-- Subtitle Paragraph -->
+                <p class="mt-6 text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                    TankLogic is the comprehensive business application designed specifically for modular tank manufacturers. Seamlessly manage all your operations from quotation to production, all on a single platform.
+                </p>
+
+                <!-- Store Badges -->
+                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    
+                    <!-- App Store Badge -->
+                    <a href="https://apps.apple.com/us/app/tanklogic/id6783915457" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-cyan-500/50 text-slate-900 dark:text-white transition-all flex items-center justify-center gap-3 group shadow-md dark:shadow-lg">
+                        <svg class="w-8 h-8 fill-current text-slate-800 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" viewBox="0 0 384 512" aria-hidden="true">
+                            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                        </svg>
+                        <div class="text-left">
+                            <div class="text-[10px] uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400">Download on the</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white tracking-tight leading-none mt-0.5">App Store</div>
+                        </div>
+                    </a>
+
+                    <!-- Google Play Badge -->
+                    <a href="https://play.google.com/store/apps/details?id=com.uncertadev.tanklogic" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-cyan-500/50 text-slate-900 dark:text-white transition-all flex items-center justify-center gap-3 group shadow-md dark:shadow-lg">
+                        <svg class="w-7 h-7 fill-current text-slate-800 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" viewBox="0 0 512 512">
+                            <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                        </svg>
+                        <div class="text-left">
+                            <div class="text-[10px] uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400">GET IT ON</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white tracking-tight leading-none mt-0.5">Google Play</div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Interactive UI Preview Showcase -->
+        <section id="overview" class="pb-20 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c0f18] p-3 sm:p-5 shadow-xl dark:shadow-2xl glow-cyan overflow-hidden transition-colors">
+                
+                <!-- Mock Header Bar -->
+                <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800/80 px-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                        <span class="ml-2 text-xs font-mono text-slate-400 dark:text-slate-500 hidden sm:inline">TankLogic Control Dashboard v2.4</span>
+                    </div>
+                    <div class="text-xs font-mono text-cyan-700 dark:text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/20">
+                        Status: Connected & Synchronized
+                    </div>
+                </div>
+
+                <!-- Mock Dashboard Visual -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+                    
+                    <!-- Card 1 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                        <div class="text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1">Active Tank Configuration</div>
+                        <div class="text-lg font-bold text-slate-900 dark:text-white font-sans">Stainless Modular Tank #4082</div>
+                        <div class="mt-3 space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <div class="flex justify-between"><span>Dimensions:</span><span class="text-cyan-600 dark:text-cyan-400 font-semibold">4m x 6m x 3m</span></div>
+                            <div class="flex justify-between"><span>Capacity:</span><span class="text-cyan-600 dark:text-cyan-400 font-semibold">72.0 m³</span></div>
+                            <div class="flex justify-between"><span>Panel Type:</span><span class="text-slate-900 dark:text-slate-100 font-semibold">Hot Pressed Stainless</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                        <div class="text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1">Calculated Costing & Quote</div>
+                        <div class="text-lg font-bold text-emerald-600 dark:text-emerald-400 font-sans">Instant Quotation Ready</div>
+                        <div class="mt-3 space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <div class="flex justify-between"><span>Material Cost:</span><span class="text-slate-900 dark:text-slate-100 font-semibold">Calculated</span></div>
+                            <div class="flex justify-between"><span>Panel Count:</span><span class="text-cyan-600 dark:text-cyan-400 font-semibold">116 Panels</span></div>
+                            <div class="flex justify-between"><span>Margin Status:</span><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Optimal (+24%)</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                        <div class="text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1">Automated Production BOM</div>
+                        <div class="text-lg font-bold text-blue-600 dark:text-blue-400 font-sans">Floor Ready Transfer</div>
+                        <div class="mt-3 space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <div class="flex justify-between"><span>Hardware & Bolts:</span><span class="text-cyan-600 dark:text-cyan-400 font-semibold">840 Sets</span></div>
+                            <div class="flex justify-between"><span>Tie Rods:</span><span class="text-cyan-600 dark:text-cyan-400 font-semibold">32 Units</span></div>
+                            <div class="flex justify-between"><span>Status:</span><span class="text-blue-600 dark:text-blue-400 font-semibold">Synced to Mobile</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Core Features Section -->
+        <section id="features" class="py-20 bg-slate-100/70 dark:bg-[#06080d] border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-mono font-semibold uppercase tracking-widest text-cyan-700 dark:text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+                        Core Capabilities
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-4 tracking-tight">
+                        Built Specifically for Tank Manufacturers
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+                        Eliminate manual calculation errors and streamline your complete shop-floor workflow.
+                    </p>
+                </div>
+
+                <!-- Features Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Feature Card 1 -->
+                    <div class="glow-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gradient-to-b dark:from-slate-900/80 dark:to-slate-950/60 shadow-md dark:shadow-none">
+                        <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-2xl mb-6 shadow-inner">
+                            ⚙️
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Configuration & Costing</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Instantly generate accurate, error-free quotes based on specific customer demands and dynamic pricing parameters.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="glow-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gradient-to-b dark:from-slate-900/80 dark:to-slate-950/60 shadow-md dark:shadow-none">
+                        <div class="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-2xl mb-6 shadow-inner">
+                            📋
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Automated BOM Generation</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Automatically calculate detailed Bill of Materials for your orders and transfer them seamlessly to the production floor.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="glow-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gradient-to-b dark:from-slate-900/80 dark:to-slate-950/60 shadow-md dark:shadow-none">
+                        <div class="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-2xl mb-6 shadow-inner">
+                            📱
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Multi-Platform Access</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Access your critical data anywhere—in the office or on the shop floor—with synchronized mobile, tablet, and web interfaces.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Operation Workflow Timeline -->
+        <section class="py-20 border-t border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#080a0f] transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div>
+                        <span class="text-xs font-mono uppercase text-cyan-700 dark:text-cyan-400 font-semibold tracking-wider">End-to-End Control</span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-2">Single Platform for Your Entire Tank Lifecycle</h2>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 leading-relaxed">
+                            From customer inquiry and instant quotation to structural panel planning and shop-floor dispatch.
+                        </p>
+                    </div>
+                    
+                    <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-sm dark:shadow-none">
+                            <div class="text-xs font-mono text-cyan-700 dark:text-cyan-400 font-bold">STEP 01</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Configure & Quote</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 mt-2">Input dimensions, fluid type, and reinforcement levels for instant margin calculation.</div>
+                        </div>
+                        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-sm dark:shadow-none">
+                            <div class="text-xs font-mono text-blue-700 dark:text-blue-400 font-bold">STEP 02</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Export BOM & Parts</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 mt-2">Exact panel counts, corner pieces, internal bracing, and gasket lengths generated automatically.</div>
+                        </div>
+                        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-sm dark:shadow-none">
+                            <div class="text-xs font-mono text-indigo-700 dark:text-indigo-400 font-bold">STEP 03</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white mt-1">Floor Execution</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 mt-2">Assembly technicians access real-time instructions and specs on mobile or tablet devices.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#05060a] py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Brand & Copyright -->
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-slate-900 dark:text-white font-mono text-base">Tank<span class="text-cyan-600 dark:text-cyan-400">Logic</span></span>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <span class="text-xs sm:text-sm">&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.</span>
+            </div>
+
+            <!-- Footer Compliance Links -->
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="privacy_policy.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Terms of Use</a>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <a href="support.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Support</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Dark/Light Theme Switching -->
+    <script>
+        // Mobile Drawer Elements
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyTheme(useDark) {
+            document.documentElement.classList.toggle('dark', useDark);
+        }
+
+        function toggleTheme() {
+            const nextIsDark = !document.documentElement.classList.contains('dark');
+            applyTheme(nextIsDark);
+            localStorage.setItem('theme', nextIsDark ? 'dark' : 'light');
+        }
+
+        // Follow OS theme until the user chooses manually
+        systemThemeQuery.addEventListener('change', (event) => {
+            if (localStorage.getItem('theme')) return;
+            applyTheme(event.matches);
+        });
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobileBtn.addEventListener('click', toggleTheme);
+    </script>
+
+</body>
+</html>
