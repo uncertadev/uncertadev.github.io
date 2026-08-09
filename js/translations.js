@@ -12,6 +12,7 @@ window.UNCERTA_I18N = {
     'nav.support':          'Support',
     'nav.privacy':          'Privacy Policy',
     'nav.terms':            'Terms of Use',
+    'nav.web_login':        'Web Login',
     'a11y.theme_toggle':    'Toggle Theme',
     'footer.copyright_tl':  '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.',
 
@@ -21,6 +22,8 @@ window.UNCERTA_I18N = {
     'tl.home.hero.badge':        'Modular Tank Manufacturing Suite',
     'tl.home.hero.title_html':   'Digital Control in <br class="hidden sm:inline" /><span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400">Modular Tanks</span>',
     'tl.home.hero.subtitle':     'TankLogic is the comprehensive business application designed specifically for modular tank manufacturers. Seamlessly manage all your operations from quotation to production, all on a single platform.',
+    'tl.home.hero.web_login_eyebrow': 'Open in browser',
+    'tl.home.hero.web_login':    'Web Login',
     'tl.home.dash.title':        'TankLogic Control Dashboard v2.4',
     'tl.home.dash.status':       'Status: Connected & Synchronized',
     'tl.home.dash.c1_label':     'Active Tank Configuration',
@@ -201,6 +204,9 @@ window.UNCERTA_I18N = {
 
   // ── Turkish ───────────────────────────────────────────────────────────────
   tr: {
+    'nav.web_login': 'Web Giriş',
+    'tl.home.hero.web_login_eyebrow': 'Tarayıcıda aç',
+    'tl.home.hero.web_login': 'Web Giriş',
     'nav.home':            'Uncerta Dev',
     'nav.features':        '\u00d6zellikler',
     'nav.overview':        'Sistem \u00d6zeti',
@@ -214,7 +220,7 @@ window.UNCERTA_I18N = {
     'tl.home.meta.description':  'TankLogic, mod\u00fcler tank \u00fcreticileri i\u00e7in i\u015f uygulamas\u0131d\u0131r\u2014tank yap\u0131land\u0131r\u0131n, BOM olu\u015fturun ve mobil, tablet ile web \u00fczerinden teklif haz\u0131rlay\u0131n.',
     'tl.home.hero.badge':        'Mod\u00fcler Tank \u00dcretim Paketi',
     'tl.home.hero.title_html':   'Mod\u00fcler Tanklarda <br class="hidden sm:inline" /><span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400">Dijital Kontrol</span>',
-    'tl.home.hero.subtitle':     'TankLogic, \u00f6zellikle mod\u00fcler tank \u00fcreticileri i\u00e7in tasarlanm\u0131\u015f kapsaml\u0131 bir i\u015f uygulamas\u0131d\u0131r. Tekliften \u00Uretime t\u00fcm operasyonlar\u0131n\u0131z\u0131 tek platformda y\u00f6netin.',
+    'tl.home.hero.subtitle':     'TankLogic, \u00f6zellikle mod\u00fcler tank \u00fcreticileri i\u00e7in tasarlanm\u0131\u015f kapsaml\u0131 bir i\u015f uygulamas\u0131d\u0131r. Tekliften \u00dcretime t\u00fcm operasyonlar\u0131n\u0131z\u0131 tek platformda y\u00f6netin.',
     'tl.home.dash.title':        'TankLogic Kontrol Paneli v2.4',
     'tl.home.dash.status':       'Durum: Ba\u011fl\u0131 ve Senkronize',
     'tl.home.dash.c1_label':     'Aktif Tank Yap\u0131land\u0131rmas\u0131',
@@ -299,7 +305,7 @@ window.UNCERTA_I18N = {
     'tl.privacy.s05_li4': '<strong>ipify.org</strong> \u2014 oturum g\u00fcvenlik g\u00fcnl\u00fc\u011f\u00fc i\u00e7in genel IP adresinizin al\u0131nmas\u0131.',
     'tl.privacy.s05_p2': 'Ki\u015fisel bilgilerinizi satmay\u0131z. Yasalar gerektirdi\u011finde veya haklar\u0131, g\u00fcvenli\u011fi ve emniyeti korumak i\u00e7in bilgileri a\u00e7\u0131klayabiliriz.',
     'tl.privacy.s06_title': 'Veri saklama',
-    'tl.privacy.s06_p1': 'Kurulu\u015f verilerinizi hesab\u0131n\u0131z aktif oldu\u011fu s\u00fcrece saklar\u0131z. \u00dccrets\u00fiz de\u011flendirme d\u00f6nemindeyseniz ve abone olmazsan\u0131z, kurulu\u015f verileri Uygulamada a\u00e7\u0131klanan de\u011flendirme ve saklama s\u00fcresinden sonra kald\u0131r\u0131labilir.',
+    'tl.privacy.s06_p1': 'Kurulu\u015f verilerinizi hesab\u0131n\u0131z aktif oldu\u011fu s\u00fcrece saklar\u0131z. \u00dccrets\u00fccretsiz de\u011flendirme d\u00f6nemindeyseniz ve abone olmazsan\u0131z, kurulu\u015f verileri Uygulamada a\u00e7\u0131klanan de\u011flendirme ve saklama s\u00fcresinden sonra kald\u0131r\u0131labilir.',
     'tl.privacy.s06_p2': 'Hesab\u0131n\u0131z\u0131 Uygulama i\u00e7inden kal\u0131c\u0131 olarak silebilirsiniz (Ayarlar \u2192 Hesab\u0131 Sil). Silme, kimlik do\u011frulama hesab\u0131n\u0131z\u0131 ve kurulu\u015f sahipleri i\u00e7in ili\u015fkili \u015firket verilerini sistemlerimizden kald\u0131r\u0131r; k\u0131sa teknik yedekleme d\u00f6ng\u00fcleri sakl\u0131 kal\u0131r.',
     'tl.privacy.s07_title': 'G\u00fcvenlik',
     'tl.privacy.s07_p1': '\u015eifreli aktar\u0131m (HTTPS), Firebase g\u00fcvenlik kurallar\u0131 ve bir kurulu\u015f i\u00e7indeki kullan\u0131c\u0131 roller\u00f6ne dayal\u0131 eri\u015fim kontrolleri dahil olmak \u00fczere end\u00fcstri standard\u0131 \u00f6nlemler kullan\u0131r\u0131z. Hi\u00e7bir aktar\u0131m veya depolama y\u00f6ntemi tamamen g\u00fcvenli de\u011fildir.',
@@ -392,6 +398,9 @@ window.UNCERTA_I18N = {
 
   // ── German ────────────────────────────────────────────────────────────────
   de: {
+    'nav.web_login': 'Web-Login',
+    'tl.home.hero.web_login_eyebrow': 'Im Browser öffnen',
+    'tl.home.hero.web_login': 'Web-Login',
     'nav.home':            'Uncerta Dev',
     'nav.features':        'Funktionen',
     'nav.overview':        'System\u00fcbersicht',
