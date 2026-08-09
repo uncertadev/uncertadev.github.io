@@ -1,11 +1,11 @@
 {
-    "name": "tanklogic",
-    "short_name": "tanklogic",
+    "name": "TankLogic",
+    "short_name": "TankLogic",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#0c0f18",
+    "theme_color": "#0891b2",
+    "description": "Business app for modular tank manufacturers.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
