@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-i18n-title="meta.title">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TankLogic Support</title>
-    <meta name="description" content="Get help with TankLogic — contact Uncerta Dev for account, billing, and technical support.">
+    <meta name="description" content="Get help with TankLogic — contact Uncerta Dev for account, billing, and technical support." data-i18n-content="meta.description">
     <link rel="canonical" href="https://www.uncerta.dev/tanklogic/support.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="../images/icon-192.png">
@@ -53,6 +53,8 @@
     </script>
     
     <style>
+        html:not(.i18n-ready) body { visibility: hidden; }
+
         /* Light mode grid pattern */
         .bg-grid {
             background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
@@ -96,20 +98,18 @@
 
             <!-- Navigation Links & Theme Switcher -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a>
-                <a href="index.html#features" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Features</a>
-                <a href="index.html#overview" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">System Overview</a>
-                <a href="support.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors">Support</a>
-                <a href="privacy_policy.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Privacy Policy</a>
-                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Terms of Use</a>
+                <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.home">Uncerta Dev</a>
+                <a href="index.html#features" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.features">Features</a>
+                <a href="index.html#overview" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.overview">System Overview</a>
+                <a href="support.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors" data-i18n="nav.support">Support</a>
+                <a href="privacy_policy.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
+                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
                 
                 <!-- Theme Toggle Button -->
-                <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all">
-                    <!-- Sun Icon (shows in Dark mode) -->
+                <button id="theme-toggle" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all">
                     <svg id="theme-toggle-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
-                    <!-- Moon Icon (shows in Light mode) -->
                     <svg id="theme-toggle-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                     </svg>
@@ -118,9 +118,9 @@
 
             <!-- Mobile Action Controls -->
             <div class="flex items-center gap-2 md:hidden">
-                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
                     <svg id="theme-toggle-sun-mobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
                     <svg id="theme-toggle-moon-mobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
@@ -137,12 +137,12 @@
 
         <!-- Mobile Drawer -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-[#0c0e17] border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex-col gap-4 text-sm font-medium">
-            <a href="../" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Uncerta Dev</a>
-            <a href="index.html#features" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Features</a>
-            <a href="index.html#overview" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">System Overview</a>
-            <a href="support.html" class="text-cyan-600 dark:text-cyan-400 font-semibold py-1">Support</a>
-            <a href="privacy_policy.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Privacy Policy</a>
-            <a href="terms_of_use.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Terms of Use</a>
+            <a href="../" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.home">Uncerta Dev</a>
+            <a href="index.html#features" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.features">Features</a>
+            <a href="index.html#overview" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.overview">System Overview</a>
+            <a href="support.html" class="text-cyan-600 dark:text-cyan-400 font-semibold py-1" data-i18n="nav.support">Support</a>
+            <a href="privacy_policy.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.privacy">Privacy Policy</a>
+            <a href="terms_of_use.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.terms">Terms of Use</a>
         </div>
     </nav>
 
@@ -154,12 +154,12 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-8 mb-8">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 mb-4">
                     <span class="w-2 h-2 rounded-full bg-cyan-600 dark:bg-cyan-400"></span>
-                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300">Customer Assistance</span>
+                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300" data-i18n="page.badge">Customer Assistance</span>
                 </div>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white" data-i18n="page.title">
                     TankLogic Support
                 </h1>
-                <p class="mt-3 text-xs sm:text-sm font-mono text-cyan-700 dark:text-cyan-400">
+                <p class="mt-3 text-xs sm:text-sm font-mono text-cyan-700 dark:text-cyan-400" data-i18n="page.updated">
                     Last updated: July 5, 2026
                 </p>
             </div>
@@ -167,7 +167,7 @@
             <!-- Document Body Content -->
             <div class="space-y-8 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                 
-                <p class="text-base sm:text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+                <p class="text-base sm:text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed" data-i18n="page.intro">
                     TankLogic helps modular tank manufacturers configure tanks, calculate volumes and bill of materials, and create professional quotes on mobile, tablet, and web.
                 </p>
 
@@ -175,18 +175,18 @@
                 <section class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">01</span>
-                        Contact us
+                        <span data-i18n="s1.title">Contact us</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n-html="s1.p1">
                         For questions, account access, billing, technical issues, or feedback, email us at <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.
                     </p>
                     <div class="pl-0 sm:pl-11 mt-3">
                         <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-sm">
-                            We aim to respond within <strong>two business days</strong>. Please include:
+                            <span data-i18n-html="s1.boxIntro">We aim to respond within <strong>two business days</strong>. Please include:</span>
                             <ul class="mt-2 space-y-1 text-slate-600 dark:text-slate-400">
-                                <li>• Your organization name</li>
-                                <li>• The email address on your TankLogic account</li>
-                                <li>• A short description of the issue</li>
+                                <li data-i18n="s1.li1">• Your organization name</li>
+                                <li data-i18n="s1.li2">• The email address on your TankLogic account</li>
+                                <li data-i18n="s1.li3">• A short description of the issue</li>
                             </ul>
                         </div>
                     </div>
@@ -196,28 +196,28 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">02</span>
-                        What we can help with
+                        <span data-i18n="s2.title">What we can help with</span>
                     </h2>
                     <ul class="pl-0 sm:pl-11 space-y-2.5 list-none">
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span>Signing in, password reset, and email verification</span>
+                            <span data-i18n="s2.li1">Signing in, password reset, and email verification</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span>Subscription plans, billing, and App Store purchases</span>
+                            <span data-i18n="s2.li2">Subscription plans, billing, and App Store purchases</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span>Team access, roles, and administrator setup</span>
+                            <span data-i18n="s2.li3">Team access, roles, and administrator setup</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span>Configurator, offers, orders, and PDF export questions</span>
+                            <span data-i18n="s2.li4">Configurator, offers, orders, and PDF export questions</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span>Bug reports and feature requests</span>
+                            <span data-i18n="s2.li5">Bug reports and feature requests</span>
                         </li>
                     </ul>
                 </section>
@@ -226,21 +226,21 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">03</span>
-                        Before you write
+                        <span data-i18n="s3.title">Before you write</span>
                     </h2>
                     
                     <div class="pl-0 sm:pl-11 grid grid-cols-1 gap-3">
                         <div class="p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex gap-3 items-center">
                             <div class="w-8 h-8 shrink-0 rounded bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 text-lg">⬇️</div>
-                            <div class="text-sm">Confirm you are using the latest version of TankLogic from Google Play or the App Store.</div>
+                            <div class="text-sm" data-i18n="s3.tip1">Confirm you are using the latest version of TankLogic from Google Play or the App Store.</div>
                         </div>
                         <div class="p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex gap-3 items-center">
                             <div class="w-8 h-8 shrink-0 rounded bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 text-lg">📶</div>
-                            <div class="text-sm">Check that your device has an active internet connection.</div>
+                            <div class="text-sm" data-i18n="s3.tip2">Check that your device has an active internet connection.</div>
                         </div>
                         <div class="p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex gap-3 items-center">
                             <div class="w-8 h-8 shrink-0 rounded bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 text-lg">🏢</div>
-                            <div class="text-sm">If your organization uses TankLogic, contact your company administrator for user permissions and account activation.</div>
+                            <div class="text-sm" data-i18n="s3.tip3">If your organization uses TankLogic, contact your company administrator for user permissions and account activation.</div>
                         </div>
                     </div>
                 </section>
@@ -249,19 +249,19 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">04</span>
-                        Legal & Information
+                        <span data-i18n="s4.title">Legal & Information</span>
                     </h2>
                     <ul class="pl-0 sm:pl-11 space-y-2.5 list-none font-medium">
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 hover:underline">Privacy Policy</a>
+                            <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 hover:underline" data-i18n="nav.privacy">Privacy Policy</a>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <a href="terms_of_use.html" class="text-cyan-600 dark:text-cyan-400 hover:underline">Terms of Use</a>
+                            <a href="terms_of_use.html" class="text-cyan-600 dark:text-cyan-400 hover:underline" data-i18n="nav.terms">Terms of Use</a>
                         </li>
                     </ul>
-                    <p class="pl-0 sm:pl-11 mt-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono">
+                    <p class="pl-0 sm:pl-11 mt-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono" data-i18n="s4.provider">
                         TankLogic is provided by Uncerta Dev.
                     </p>
                 </section>
@@ -275,28 +275,113 @@
     <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#05060a] py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
             
-            <!-- Brand & Copyright -->
             <div class="flex items-center gap-3">
                 <span class="font-bold text-slate-900 dark:text-white font-mono text-base">Tank<span class="text-cyan-600 dark:text-cyan-400">Logic</span></span>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <span class="text-xs sm:text-sm">&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.</span>
+                <span class="text-xs sm:text-sm" data-i18n-html="footer.rightsHtml">&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.</span>
             </div>
 
-            <!-- Footer Compliance Links -->
             <div class="flex items-center gap-4 text-xs font-medium">
-                <a href="privacy_policy.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                <a href="privacy_policy.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Terms of Use</a>
+                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <a href="support.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors">Support</a>
+                <a href="support.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors" data-i18n="nav.support">Support</a>
             </div>
 
         </div>
     </footer>
 
+    <script src="../js/i18n-shared.js"></script>
+    <script>
+        window.mergeUncertaI18n({
+            en: {
+                'meta.title': 'TankLogic Support',
+                'meta.description': 'Get help with TankLogic — contact Uncerta Dev for account, billing, and technical support.',
+                'page.badge': 'Customer Assistance',
+                'page.title': 'TankLogic Support',
+                'page.updated': 'Last updated: July 5, 2026',
+                'page.intro': 'TankLogic helps modular tank manufacturers configure tanks, calculate volumes and bill of materials, and create professional quotes on mobile, tablet, and web.',
+                's1.title': 'Contact us',
+                's1.p1': 'For questions, account access, billing, technical issues, or feedback, email us at <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.',
+                's1.boxIntro': 'We aim to respond within <strong>two business days</strong>. Please include:',
+                's1.li1': '• Your organization name',
+                's1.li2': '• The email address on your TankLogic account',
+                's1.li3': '• A short description of the issue',
+                's2.title': 'What we can help with',
+                's2.li1': 'Signing in, password reset, and email verification',
+                's2.li2': 'Subscription plans, billing, and App Store purchases',
+                's2.li3': 'Team access, roles, and administrator setup',
+                's2.li4': 'Configurator, offers, orders, and PDF export questions',
+                's2.li5': 'Bug reports and feature requests',
+                's3.title': 'Before you write',
+                's3.tip1': 'Confirm you are using the latest version of TankLogic from Google Play or the App Store.',
+                's3.tip2': 'Check that your device has an active internet connection.',
+                's3.tip3': 'If your organization uses TankLogic, contact your company administrator for user permissions and account activation.',
+                's4.title': 'Legal & Information',
+                's4.provider': 'TankLogic is provided by Uncerta Dev.',
+                'footer.rightsHtml': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.'
+            },
+            tr: {
+                'meta.title': 'TankLogic Destek',
+                'meta.description': 'TankLogic için yardım alın — hesap, faturalama ve teknik destek için Uncerta Dev ile iletişime geçin.',
+                'page.badge': 'Müşteri Desteği',
+                'page.title': 'TankLogic Destek',
+                'page.updated': 'Son güncelleme: 5 Temmuz 2026',
+                'page.intro': 'TankLogic, modüler tank üreticilerinin tankları yapılandırmasına, hacim ve malzeme listelerini hesaplamasına ve mobil, tablet ile web üzerinden profesyonel teklifler oluşturmasına yardımcı olur.',
+                's1.title': 'Bize ulaşın',
+                's1.p1': 'Sorular, hesap erişimi, faturalama, teknik sorunlar veya geri bildirim için bize <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a> adresinden e-posta gönderin.',
+                's1.boxIntro': '<strong>İki iş günü</strong> içinde yanıt vermeyi hedefliyoruz. Lütfen şunları ekleyin:',
+                's1.li1': '• Kuruluşunuzun adı',
+                's1.li2': '• TankLogic hesabınızdaki e-posta adresi',
+                's1.li3': '• Sorunun kısa açıklaması',
+                's2.title': 'Nelerde yardımcı olabiliriz',
+                's2.li1': 'Giriş, şifre sıfırlama ve e-posta doğrulama',
+                's2.li2': 'Abonelik planları, faturalama ve App Store satın alımları',
+                's2.li3': 'Ekip erişimi, roller ve yönetici kurulumu',
+                's2.li4': 'Konfigüratör, teklifler, siparişler ve PDF dışa aktarma soruları',
+                's2.li5': 'Hata bildirimleri ve özellik istekleri',
+                's3.title': 'Yazmadan önce',
+                's3.tip1': 'Google Play veya App Store üzerinden TankLogic’in en son sürümünü kullandığınızı doğrulayın.',
+                's3.tip2': 'Cihazınızın aktif bir internet bağlantısı olduğundan emin olun.',
+                's3.tip3': 'Kuruluşunuz TankLogic kullanıyorsa, kullanıcı izinleri ve hesap aktivasyonu için şirket yöneticinize başvurun.',
+                's4.title': 'Yasal ve Bilgi',
+                's4.provider': 'TankLogic, Uncerta Dev tarafından sunulmaktadır.',
+                'footer.rightsHtml': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. Tüm hakları saklıdır.'
+            },
+            de: {
+                'meta.title': 'TankLogic Support',
+                'meta.description': 'Hilfe zu TankLogic — kontaktieren Sie Uncerta Dev bei Konto-, Abrechnungs- und technischen Fragen.',
+                'page.badge': 'Kundenhilfe',
+                'page.title': 'TankLogic Support',
+                'page.updated': 'Zuletzt aktualisiert: 5. Juli 2026',
+                'page.intro': 'TankLogic hilft Herstellern modularer Tanks bei der Konfiguration, Volumen- und Stücklistenberechnung sowie bei professionellen Angeboten auf Mobil, Tablet und Web.',
+                's1.title': 'Kontakt',
+                's1.p1': 'Bei Fragen, Kontozugang, Abrechnung, technischen Problemen oder Feedback schreiben Sie an <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.',
+                's1.boxIntro': 'Wir antworten in der Regel innerhalb von <strong>zwei Werktagen</strong>. Bitte geben Sie an:',
+                's1.li1': '• Name Ihrer Organisation',
+                's1.li2': '• Die E-Mail-Adresse Ihres TankLogic-Kontos',
+                's1.li3': '• Eine kurze Beschreibung des Problems',
+                's2.title': 'Wobei wir helfen können',
+                's2.li1': 'Anmeldung, Passwortzurücksetzung und E-Mail-Verifizierung',
+                's2.li2': 'Abonnements, Abrechnung und App-Store-Käufe',
+                's2.li3': 'Teamzugriff, Rollen und Administrator-Einrichtung',
+                's2.li4': 'Fragen zu Konfigurator, Angeboten, Aufträgen und PDF-Export',
+                's2.li5': 'Fehlerberichte und Feature-Wünsche',
+                's3.title': 'Bevor Sie schreiben',
+                's3.tip1': 'Stellen Sie sicher, dass Sie die neueste Version von TankLogic über Google Play oder den App Store nutzen.',
+                's3.tip2': 'Prüfen Sie, ob Ihr Gerät eine aktive Internetverbindung hat.',
+                's3.tip3': 'Wenn Ihre Organisation TankLogic nutzt, wenden Sie sich für Berechtigungen und Kontoaktivierung an Ihren Firmenadministrator.',
+                's4.title': 'Rechtliches & Informationen',
+                's4.provider': 'TankLogic wird von Uncerta Dev bereitgestellt.',
+                'footer.rightsHtml': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. Alle Rechte vorbehalten.'
+            }
+        });
+    </script>
+    <script src="../js/i18n.js"></script>
+
     <!-- JavaScript for Mobile Menu and Dark/Light Theme Switching -->
     <script>
-        // Mobile Drawer Elements
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -305,7 +390,6 @@
             mobileMenu.classList.toggle('flex');
         });
 
-        // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
         const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -320,7 +404,6 @@
             localStorage.setItem('theme', nextIsDark ? 'dark' : 'light');
         }
 
-        // Follow OS theme until the user chooses manually
         systemThemeQuery.addEventListener('change', (event) => {
             if (localStorage.getItem('theme')) return;
             applyTheme(event.matches);

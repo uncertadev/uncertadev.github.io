@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-i18n-title="meta.home.title">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uncerta Dev — Software for Industry</title>
-    <meta name="description" content="Uncerta Dev builds focused business software for industry. Explore TankLogic and upcoming products.">
+    <meta name="description" content="Uncerta Dev builds focused business software for industry. Explore TankLogic and upcoming products." data-i18n-content="meta.home.description">
     <link rel="canonical" href="https://www.uncerta.dev/">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <style>html:not(.i18n-ready) body{visibility:hidden}</style>
+    <noscript><style>body{visibility:visible!important}</style></noscript>
 
     <script>
         (function () {
@@ -51,15 +53,9 @@
             from { opacity: 0; transform: translateY(16px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .anim-rise {
-            animation: rise-in 0.7s ease-out both;
-        }
-        .anim-rise-delay {
-            animation: rise-in 0.7s ease-out 0.12s both;
-        }
-        .anim-rise-delay-2 {
-            animation: rise-in 0.7s ease-out 0.24s both;
-        }
+        .anim-rise { animation: rise-in 0.7s ease-out both; }
+        .anim-rise-delay { animation: rise-in 0.7s ease-out 0.12s both; }
+        .anim-rise-delay-2 { animation: rise-in 0.7s ease-out 0.24s both; }
         .product-row {
             transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
         }
@@ -84,9 +80,9 @@
             </a>
 
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="#products" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Products</a>
-                <a href="mailto:uncertadev@gmail.com" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
-                <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all">
+                <a href="#products" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.products">Products</a>
+                <a href="mailto:uncertadev@gmail.com" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.contact">Contact</a>
+                <button id="theme-toggle" type="button" data-i18n-attr="aria-label:a11y.theme_toggle" aria-label="Toggle Theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all">
                     <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
@@ -97,7 +93,7 @@
             </div>
 
             <div class="flex items-center gap-2 md:hidden">
-                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+                <button id="theme-toggle-mobile" type="button" data-i18n-attr="aria-label:a11y.theme_toggle" aria-label="Toggle Theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
                     <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
@@ -105,7 +101,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                     </svg>
                 </button>
-                <button id="menu-btn" type="button" aria-label="Open menu" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50">
+                <button id="menu-btn" type="button" data-i18n-attr="aria-label:a11y.open_menu" aria-label="Open menu" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -114,8 +110,8 @@
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-[#0c0e17] border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex-col gap-4 text-sm font-medium">
-            <a href="#products" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Products</a>
-            <a href="mailto:uncertadev@gmail.com" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Contact</a>
+            <a href="#products" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.products">Products</a>
+            <a href="mailto:uncertadev@gmail.com" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.contact">Contact</a>
         </div>
     </nav>
 
@@ -125,17 +121,17 @@
                 <p class="anim-rise text-sm font-mono font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-400 mb-5">
                     Uncerta Dev
                 </p>
-                <h1 class="anim-rise-delay text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.05]">
+                <h1 class="anim-rise-delay text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.05]" data-i18n="home.hero.headline">
                     Software built for the shop floor.
                 </h1>
-                <p class="anim-rise-delay-2 mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                <p class="anim-rise-delay-2 mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl" data-i18n="home.hero.sub">
                     We design focused business apps for industrial teams—clear workflows, reliable data, and tools that work where the work happens.
                 </p>
                 <div class="anim-rise-delay-2 mt-10 flex flex-wrap items-center gap-4">
-                    <a href="#products" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition-colors shadow-lg shadow-cyan-600/20">
+                    <a href="#products" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition-colors shadow-lg shadow-cyan-600/20" data-i18n="home.cta.products">
                         View products
                     </a>
-                    <a href="mailto:uncertadev@gmail.com" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/60 hover:border-cyan-500/50 text-slate-900 dark:text-white font-medium transition-colors">
+                    <a href="mailto:uncertadev@gmail.com" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/60 hover:border-cyan-500/50 text-slate-900 dark:text-white font-medium transition-colors" data-i18n="home.cta.contact">
                         Contact us
                     </a>
                 </div>
@@ -145,8 +141,8 @@
         <section id="products" class="py-20 border-t border-slate-200 dark:border-slate-800/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-2xl mb-12">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Products</h2>
-                    <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white" data-i18n="home.products.title">Products</h2>
+                    <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="home.products.sub">
                         Practical tools for manufacturers. More products are on the way.
                     </p>
                 </div>
@@ -159,14 +155,14 @@
                                 <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-mono tracking-tight">
                                     Tank<span class="text-cyan-600 dark:text-cyan-400">Logic</span>
                                 </h3>
-                                <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-800 dark:text-cyan-300">Available</span>
+                                <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-800 dark:text-cyan-300" data-i18n="home.product.available">Available</span>
                             </div>
-                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="home.product.blurb">
                                 End-to-end operations for modular tank manufacturers—configure, quote, BOM, and production tracking on mobile, tablet, and web.
                             </p>
                         </div>
                         <span class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-400 group-hover:gap-3 transition-all shrink-0">
-                            Open product
+                            <span data-i18n="home.product.open">Open product</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
@@ -182,16 +178,78 @@
             <div class="flex items-center gap-3">
                 <span class="font-bold text-slate-900 dark:text-white font-mono text-base">Uncerta<span class="text-cyan-600 dark:text-cyan-400">Dev</span></span>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <span class="text-xs sm:text-sm">&copy; 2026 Uncerta Dev. All rights reserved.</span>
+                <span class="text-xs sm:text-sm" data-i18n="footer.copyright">&copy; 2026 Uncerta Dev. All rights reserved.</span>
             </div>
             <div class="flex items-center gap-4 text-xs font-medium">
                 <a href="tanklogic/" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">TankLogic</a>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <a href="mailto:uncertadev@gmail.com" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+                <a href="mailto:uncertadev@gmail.com" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="footer.contact">Contact</a>
             </div>
         </div>
     </footer>
 
+    <script>
+        window.UNCERTA_I18N = {
+            en: {
+                'meta.home.title': 'Uncerta Dev — Software for Industry',
+                'meta.home.description': 'Uncerta Dev builds focused business software for industry. Explore TankLogic and upcoming products.',
+                'nav.products': 'Products',
+                'nav.contact': 'Contact',
+                'a11y.theme_toggle': 'Toggle Theme',
+                'a11y.open_menu': 'Open menu',
+                'home.hero.headline': 'Software built for the shop floor.',
+                'home.hero.sub': 'We design focused business apps for industrial teams—clear workflows, reliable data, and tools that work where the work happens.',
+                'home.cta.products': 'View products',
+                'home.cta.contact': 'Contact us',
+                'home.products.title': 'Products',
+                'home.products.sub': 'Practical tools for manufacturers. More products are on the way.',
+                'home.product.available': 'Available',
+                'home.product.blurb': 'End-to-end operations for modular tank manufacturers—configure, quote, BOM, and production tracking on mobile, tablet, and web.',
+                'home.product.open': 'Open product',
+                'footer.copyright': '© 2026 Uncerta Dev. All rights reserved.',
+                'footer.contact': 'Contact'
+            },
+            tr: {
+                'meta.home.title': 'Uncerta Dev — Sanayi için Yazılım',
+                'meta.home.description': 'Uncerta Dev, sanayi için odaklı iş yazılımları geliştirir. TankLogic ve gelecek ürünleri keşfedin.',
+                'nav.products': 'Ürünler',
+                'nav.contact': 'İletişim',
+                'a11y.theme_toggle': 'Temayı Değiştir',
+                'a11y.open_menu': 'Menüyü aç',
+                'home.hero.headline': 'Atölye için tasarlanmış yazılım.',
+                'home.hero.sub': 'Endüstriyel ekipler için odaklı iş uygulamaları tasarlıyoruz—net iş akışları, güvenilir veri ve işin olduğu yerde çalışan araçlar.',
+                'home.cta.products': 'Ürünleri gör',
+                'home.cta.contact': 'Bize ulaşın',
+                'home.products.title': 'Ürünler',
+                'home.products.sub': 'Üreticiler için pratik araçlar. Daha fazla ürün yolda.',
+                'home.product.available': 'Mevcut',
+                'home.product.blurb': 'Modüler tank üreticileri için uçtan uca operasyon—yapılandırma, teklif, BOM ve üretim takibi; mobil, tablet ve web.',
+                'home.product.open': 'Ürünü aç',
+                'footer.copyright': '© 2026 Uncerta Dev. Tüm hakları saklıdır.',
+                'footer.contact': 'İletişim'
+            },
+            de: {
+                'meta.home.title': 'Uncerta Dev — Software für die Industrie',
+                'meta.home.description': 'Uncerta Dev entwickelt fokussierte Business-Software für die Industrie. Entdecken Sie TankLogic und kommende Produkte.',
+                'nav.products': 'Produkte',
+                'nav.contact': 'Kontakt',
+                'a11y.theme_toggle': 'Design umschalten',
+                'a11y.open_menu': 'Menü öffnen',
+                'home.hero.headline': 'Software für die Werkstatt.',
+                'home.hero.sub': 'Wir entwickeln fokussierte Business-Apps für industrielle Teams—klare Workflows, zuverlässige Daten und Tools, die dort funktionieren, wo die Arbeit stattfindet.',
+                'home.cta.products': 'Produkte ansehen',
+                'home.cta.contact': 'Kontakt aufnehmen',
+                'home.products.title': 'Produkte',
+                'home.products.sub': 'Praktische Tools für Hersteller. Weitere Produkte folgen.',
+                'home.product.available': 'Verfügbar',
+                'home.product.blurb': 'End-to-End-Betrieb für modulare Tankhersteller—Konfiguration, Angebot, Stückliste und Produktionsverfolgung auf Mobil, Tablet und Web.',
+                'home.product.open': 'Produkt öffnen',
+                'footer.copyright': '© 2026 Uncerta Dev. Alle Rechte vorbehalten.',
+                'footer.contact': 'Kontakt'
+            }
+        };
+    </script>
+    <script src="js/i18n.js"></script>
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');

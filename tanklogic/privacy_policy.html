@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-i18n-title="meta.title">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - TankLogic</title>
-    <meta name="description" content="Privacy Policy for TankLogic by Uncerta Dev.">
+    <meta name="description" content="Privacy Policy for TankLogic by Uncerta Dev." data-i18n-content="meta.description">
     <link rel="canonical" href="https://www.uncerta.dev/tanklogic/privacy_policy.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="../images/icon-192.png">
@@ -53,6 +53,8 @@
     </script>
     
     <style>
+        html:not(.i18n-ready) body { visibility: hidden; }
+
         /* Light mode grid pattern */
         .bg-grid {
             background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
@@ -96,15 +98,15 @@
 
             <!-- Navigation Links & Theme Switcher -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a>
-                <a href="index.html#features" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Features</a>
-                <a href="index.html#overview" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">System Overview</a>
-                <a href="support.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Support</a>
-                <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors">Privacy Policy</a>
-                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Terms of Use</a>
+                <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.home">Uncerta Dev</a>
+                <a href="index.html#features" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.features">Features</a>
+                <a href="index.html#overview" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.overview">System Overview</a>
+                <a href="support.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.support">Support</a>
+                <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
+                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
                 
                 <!-- Theme Toggle Button -->
-                <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all">
+                <button id="theme-toggle" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all">
                     <!-- Sun Icon (shows in Dark mode) -->
                     <svg id="theme-toggle-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
@@ -118,7 +120,7 @@
 
             <!-- Mobile Action Controls -->
             <div class="flex items-center gap-2 md:hidden">
-                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
                     <svg id="theme-toggle-sun-mobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
@@ -137,12 +139,12 @@
 
         <!-- Mobile Drawer -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-[#0c0e17] border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex-col gap-4 text-sm font-medium">
-            <a href="../" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Uncerta Dev</a>
-            <a href="index.html#features" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Features</a>
-            <a href="index.html#overview" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">System Overview</a>
-            <a href="support.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Support</a>
-            <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 font-semibold py-1">Privacy Policy</a>
-            <a href="terms_of_use.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1">Terms of Use</a>
+            <a href="../" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.home">Uncerta Dev</a>
+            <a href="index.html#features" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.features">Features</a>
+            <a href="index.html#overview" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.overview">System Overview</a>
+            <a href="support.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.support">Support</a>
+            <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 font-semibold py-1" data-i18n="nav.privacy">Privacy Policy</a>
+            <a href="terms_of_use.html" class="text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 py-1" data-i18n="nav.terms">Terms of Use</a>
         </div>
     </nav>
 
@@ -154,12 +156,12 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-8 mb-8">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 mb-4">
                     <span class="w-2 h-2 rounded-full bg-cyan-600 dark:bg-cyan-400"></span>
-                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300">Legal Document</span>
+                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-300" data-i18n="page.badge">Legal Document</span>
                 </div>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white" data-i18n="page.title">
                     Privacy Policy
                 </h1>
-                <p class="mt-3 text-xs sm:text-sm font-mono text-cyan-700 dark:text-cyan-400">
+                <p class="mt-3 text-xs sm:text-sm font-mono text-cyan-700 dark:text-cyan-400" data-i18n="page.updated">
                     Last updated: July 1, 2026
                 </p>
             </div>
@@ -167,7 +169,7 @@
             <!-- Document Body Content -->
             <div class="space-y-8 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
                 
-                <p class="text-base sm:text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+                <p class="text-base sm:text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed" data-i18n="page.intro">
                     TankLogic ("we", "us", or "our") is a business application for modular tank manufacturers. This Privacy Policy explains how we collect, use, store, and delete information when you use the TankLogic mobile, tablet, and web applications (the "App").
                 </p>
 
@@ -175,9 +177,9 @@
                 <section class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">01</span>
-                        Who we are
+                        <span data-i18n="s1.title">Who we are</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n-html="s1.p1">
                         TankLogic is operated by Uncerta Dev. For privacy-related questions, contact us at 
                         <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.
                     </p>
@@ -187,29 +189,29 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">02</span>
-                        Information we collect
+                        <span data-i18n="s2.title">Information we collect</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">Depending on how you use the App, we may process:</p>
+                    <p class="pl-0 sm:pl-11" data-i18n="s2.intro">Depending on how you use the App, we may process:</p>
                     <ul class="pl-0 sm:pl-11 space-y-2.5 list-none">
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>Account data:</strong> name, email address, password (stored securely by Firebase Authentication; we do not store your password in plain text), and optional profile photo.</span>
+                            <span data-i18n-html="s2.li1"><strong>Account data:</strong> name, email address, password (stored securely by Firebase Authentication; we do not store your password in plain text), and optional profile photo.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>Organization data:</strong> company settings, tank configurations, offers, orders, bills of materials, production records, pricing parameters, and other business content you enter into the App.</span>
+                            <span data-i18n-html="s2.li2"><strong>Organization data:</strong> company settings, tank configurations, offers, orders, bills of materials, production records, pricing parameters, and other business content you enter into the App.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>Subscription and billing status:</strong> plan type, trial end date, and purchase identifiers processed through RevenueCat, Apple App Store, or Google Play. We do not receive or store your full payment card details.</span>
+                            <span data-i18n-html="s2.li3"><strong>Subscription and billing status:</strong> plan type, trial end date, and purchase identifiers processed through RevenueCat, Apple App Store, or Google Play. We do not receive or store your full payment card details.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>Security and session data:</strong> device identifier, device name, operating system, and public IP address when you sign in, to enforce single-device sessions and maintain an audit trail of sign-in activity.</span>
+                            <span data-i18n-html="s2.li4"><strong>Security and session data:</strong> device identifier, device name, operating system, and public IP address when you sign in, to enforce single-device sessions and maintain an audit trail of sign-in activity.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>Technical data:</strong> app version and locally stored preferences (such as theme and language) on your device.</span>
+                            <span data-i18n-html="s2.li5"><strong>Technical data:</strong> app version and locally stored preferences (such as theme and language) on your device.</span>
                         </li>
                     </ul>
                 </section>
@@ -218,18 +220,18 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">03</span>
-                        How we use information
+                        <span data-i18n="s3.title">How we use information</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">We use the information above to:</p>
+                    <p class="pl-0 sm:pl-11" data-i18n="s3.intro">We use the information above to:</p>
                     <ul class="pl-0 sm:pl-11 space-y-2 list-none">
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>create and manage your account and organization workspace;</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>provide tank configuration, quoting, order, and production features;</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>process and validate subscriptions;</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>protect accounts against unauthorized access;</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>respond to support requests;</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>comply with legal obligations.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s3.li1">create and manage your account and organization workspace;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s3.li2">provide tank configuration, quoting, order, and production features;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s3.li3">process and validate subscriptions;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s3.li4">protect accounts against unauthorized access;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s3.li5">respond to support requests;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s3.li6">comply with legal obligations.</span></li>
                     </ul>
-                    <div class="pl-0 sm:pl-11 p-4 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-medium">
+                    <div class="pl-0 sm:pl-11 p-4 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-medium" data-i18n="s3.note">
                         We do not use your data for advertising profiles. Firebase Analytics is not enabled in the App.
                     </div>
                 </section>
@@ -238,14 +240,14 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">04</span>
-                        Legal bases (EEA / UK users)
+                        <span data-i18n="s4.title">Legal bases (EEA / UK users)</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">Where applicable, we rely on:</p>
+                    <p class="pl-0 sm:pl-11" data-i18n="s4.intro">Where applicable, we rely on:</p>
                     <ul class="pl-0 sm:pl-11 space-y-2 list-none">
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>performance of a contract (providing the App and subscriptions);</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>legitimate interests (security, fraud prevention, service improvement);</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>consent where required (for example, optional profile photo upload);</span></li>
-                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span>legal obligation where applicable.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s4.li1">performance of a contract (providing the App and subscriptions);</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s4.li2">legitimate interests (security, fraud prevention, service improvement);</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s4.li3">consent where required (for example, optional profile photo upload);</span></li>
+                        <li class="flex items-start gap-3"><span class="text-cyan-500 mt-1">•</span><span data-i18n="s4.li4">legal obligation where applicable.</span></li>
                     </ul>
                 </section>
 
@@ -253,28 +255,28 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">05</span>
-                        How we share information
+                        <span data-i18n="s5.title">How we share information</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">We share data only with service providers that help us operate the App:</p>
+                    <p class="pl-0 sm:pl-11" data-i18n="s5.intro">We share data only with service providers that help us operate the App:</p>
                     <ul class="pl-0 sm:pl-11 space-y-2.5 list-none">
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>Google Firebase</strong> — authentication, cloud database, cloud functions, and file storage.</span>
+                            <span data-i18n-html="s5.li1"><strong>Google Firebase</strong> — authentication, cloud database, cloud functions, and file storage.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>RevenueCat</strong> — subscription management and receipt validation.</span>
+                            <span data-i18n-html="s5.li2"><strong>RevenueCat</strong> — subscription management and receipt validation.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>Apple App Store / Google Play</strong> — in-app purchase processing when you subscribe on mobile.</span>
+                            <span data-i18n-html="s5.li3"><strong>Apple App Store / Google Play</strong> — in-app purchase processing when you subscribe on mobile.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="text-cyan-500 mt-1">•</span>
-                            <span><strong>ipify.org</strong> — retrieval of your public IP address for session security logging.</span>
+                            <span data-i18n-html="s5.li4"><strong>ipify.org</strong> — retrieval of your public IP address for session security logging.</span>
                         </li>
                     </ul>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n="s5.p2">
                         We do not sell your personal information. We may disclose information if required by law or to protect rights, safety, and security.
                     </p>
                 </section>
@@ -283,12 +285,12 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">06</span>
-                        Data retention
+                        <span data-i18n="s6.title">Data retention</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n="s6.p1">
                         We retain your organization data while your account is active. If you are on a free evaluation period and do not subscribe, organization data may be removed after the evaluation and retention period described in the App.
                     </p>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n="s6.p2">
                         You can permanently delete your account from within the App (Settings → Delete Account). Deletion removes your authentication account and, for organization owners, associated company data from our systems, subject to short technical backup cycles.
                     </p>
                 </section>
@@ -297,9 +299,9 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">07</span>
-                        Security
+                        <span data-i18n="s7.title">Security</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n="s7.p1">
                         We use industry-standard measures including encrypted transport (HTTPS), Firebase security rules, and access controls based on user roles within an organization. No method of transmission or storage is completely secure.
                     </p>
                 </section>
@@ -308,9 +310,9 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">08</span>
-                        Your rights
+                        <span data-i18n="s8.title">Your rights</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n-html="s8.p1">
                         Depending on your location, you may have rights to access, correct, delete, or export your personal data, or to object to or restrict certain processing. To exercise these rights, email 
                         <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.
                     </p>
@@ -320,9 +322,9 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">09</span>
-                        Children
+                        <span data-i18n="s9.title">Children</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n="s9.p1">
                         TankLogic is a business application and is not directed to children under 16. We do not knowingly collect personal data from children.
                     </p>
                 </section>
@@ -331,9 +333,9 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">10</span>
-                        International transfers
+                        <span data-i18n="s10.title">International transfers</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n="s10.p1">
                         Your data may be processed on servers operated by our providers (such as Google Cloud) in regions including the European Union and the United States. We rely on appropriate safeguards where required by law.
                     </p>
                 </section>
@@ -342,9 +344,9 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">11</span>
-                        Changes to this policy
+                        <span data-i18n="s11.title">Changes to this policy</span>
                     </h2>
-                    <p class="pl-0 sm:pl-11">
+                    <p class="pl-0 sm:pl-11" data-i18n="s11.p1">
                         We may update this Privacy Policy from time to time. The "Last updated" date at the top will reflect the latest version. Continued use of the App after changes means you accept the updated policy.
                     </p>
                 </section>
@@ -353,12 +355,12 @@
                 <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
                         <span class="text-xs font-mono px-2 py-1 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20">12</span>
-                        Contact
+                        <span data-i18n="s12.title">Contact</span>
                     </h2>
                     <div class="pl-0 sm:pl-11 p-5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 font-mono text-xs sm:text-sm space-y-1">
-                        <div class="font-bold text-slate-900 dark:text-white text-base font-sans mb-1">Uncerta Dev — TankLogic</div>
-                        <div>Email: <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline">uncertadev@gmail.com</a></div>
-                        <div>Web: <a href="https://www.uncerta.dev" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 hover:underline">https://www.uncerta.dev</a></div>
+                        <div class="font-bold text-slate-900 dark:text-white text-base font-sans mb-1" data-i18n="s12.brand">Uncerta Dev — TankLogic</div>
+                        <div data-i18n-html="s12.email">Email: <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline">uncertadev@gmail.com</a></div>
+                        <div data-i18n-html="s12.web">Web: <a href="https://www.uncerta.dev" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 hover:underline">https://www.uncerta.dev</a></div>
                     </div>
                 </section>
 
@@ -375,20 +377,198 @@
             <div class="flex items-center gap-3">
                 <span class="font-bold text-slate-900 dark:text-white font-mono text-base">Tank<span class="text-cyan-600 dark:text-cyan-400">Logic</span></span>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <span class="text-xs sm:text-sm">&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.</span>
+                <span class="text-xs sm:text-sm" data-i18n-html="footer.rightsHtml">&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.</span>
             </div>
 
             <!-- Footer Compliance Links -->
             <div class="flex items-center gap-4 text-xs font-medium">
-                <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors">Privacy Policy</a>
+                <a href="privacy_policy.html" class="text-cyan-600 dark:text-cyan-400 font-semibold transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Terms of Use</a>
+                <a href="terms_of_use.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
                 <span class="text-slate-300 dark:text-slate-700">|</span>
-                <a href="support.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Support</a>
+                <a href="support.html" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors" data-i18n="nav.support">Support</a>
             </div>
 
         </div>
     </footer>
+
+    <script src="../js/i18n-shared.js"></script>
+    <script>
+        window.mergeUncertaI18n({
+            en: {
+                'meta.title': 'Privacy Policy - TankLogic',
+                'meta.description': 'Privacy Policy for TankLogic by Uncerta Dev.',
+                'page.badge': 'Legal Document',
+                'page.title': 'Privacy Policy',
+                'page.updated': 'Last updated: July 1, 2026',
+                'page.intro': 'TankLogic ("we", "us", or "our") is a business application for modular tank manufacturers. This Privacy Policy explains how we collect, use, store, and delete information when you use the TankLogic mobile, tablet, and web applications (the "App").',
+                's1.title': 'Who we are',
+                's1.p1': 'TankLogic is operated by Uncerta Dev. For privacy-related questions, contact us at <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.',
+                's2.title': 'Information we collect',
+                's2.intro': 'Depending on how you use the App, we may process:',
+                's2.li1': '<strong>Account data:</strong> name, email address, password (stored securely by Firebase Authentication; we do not store your password in plain text), and optional profile photo.',
+                's2.li2': '<strong>Organization data:</strong> company settings, tank configurations, offers, orders, bills of materials, production records, pricing parameters, and other business content you enter into the App.',
+                's2.li3': '<strong>Subscription and billing status:</strong> plan type, trial end date, and purchase identifiers processed through RevenueCat, Apple App Store, or Google Play. We do not receive or store your full payment card details.',
+                's2.li4': '<strong>Security and session data:</strong> device identifier, device name, operating system, and public IP address when you sign in, to enforce single-device sessions and maintain an audit trail of sign-in activity.',
+                's2.li5': '<strong>Technical data:</strong> app version and locally stored preferences (such as theme and language) on your device.',
+                's3.title': 'How we use information',
+                's3.intro': 'We use the information above to:',
+                's3.li1': 'create and manage your account and organization workspace;',
+                's3.li2': 'provide tank configuration, quoting, order, and production features;',
+                's3.li3': 'process and validate subscriptions;',
+                's3.li4': 'protect accounts against unauthorized access;',
+                's3.li5': 'respond to support requests;',
+                's3.li6': 'comply with legal obligations.',
+                's3.note': 'We do not use your data for advertising profiles. Firebase Analytics is not enabled in the App.',
+                's4.title': 'Legal bases (EEA / UK users)',
+                's4.intro': 'Where applicable, we rely on:',
+                's4.li1': 'performance of a contract (providing the App and subscriptions);',
+                's4.li2': 'legitimate interests (security, fraud prevention, service improvement);',
+                's4.li3': 'consent where required (for example, optional profile photo upload);',
+                's4.li4': 'legal obligation where applicable.',
+                's5.title': 'How we share information',
+                's5.intro': 'We share data only with service providers that help us operate the App:',
+                's5.li1': '<strong>Google Firebase</strong> — authentication, cloud database, cloud functions, and file storage.',
+                's5.li2': '<strong>RevenueCat</strong> — subscription management and receipt validation.',
+                's5.li3': '<strong>Apple App Store / Google Play</strong> — in-app purchase processing when you subscribe on mobile.',
+                's5.li4': '<strong>ipify.org</strong> — retrieval of your public IP address for session security logging.',
+                's5.p2': 'We do not sell your personal information. We may disclose information if required by law or to protect rights, safety, and security.',
+                's6.title': 'Data retention',
+                's6.p1': 'We retain your organization data while your account is active. If you are on a free evaluation period and do not subscribe, organization data may be removed after the evaluation and retention period described in the App.',
+                's6.p2': 'You can permanently delete your account from within the App (Settings → Delete Account). Deletion removes your authentication account and, for organization owners, associated company data from our systems, subject to short technical backup cycles.',
+                's7.title': 'Security',
+                's7.p1': 'We use industry-standard measures including encrypted transport (HTTPS), Firebase security rules, and access controls based on user roles within an organization. No method of transmission or storage is completely secure.',
+                's8.title': 'Your rights',
+                's8.p1': 'Depending on your location, you may have rights to access, correct, delete, or export your personal data, or to object to or restrict certain processing. To exercise these rights, email <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.',
+                's9.title': 'Children',
+                's9.p1': 'TankLogic is a business application and is not directed to children under 16. We do not knowingly collect personal data from children.',
+                's10.title': 'International transfers',
+                's10.p1': 'Your data may be processed on servers operated by our providers (such as Google Cloud) in regions including the European Union and the United States. We rely on appropriate safeguards where required by law.',
+                's11.title': 'Changes to this policy',
+                's11.p1': 'We may update this Privacy Policy from time to time. The "Last updated" date at the top will reflect the latest version. Continued use of the App after changes means you accept the updated policy.',
+                's12.title': 'Contact',
+                's12.brand': 'Uncerta Dev — TankLogic',
+                's12.email': 'Email: <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline">uncertadev@gmail.com</a>',
+                's12.web': 'Web: <a href="https://www.uncerta.dev" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 hover:underline">https://www.uncerta.dev</a>',
+                'footer.rightsHtml': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.'
+            },
+            tr: {
+                'meta.title': 'Gizlilik Politikası - TankLogic',
+                'meta.description': 'Uncerta Dev tarafından sunulan TankLogic için Gizlilik Politikası.',
+                'page.badge': 'Yasal Belge',
+                'page.title': 'Gizlilik Politikası',
+                'page.updated': 'Son güncelleme: 1 Temmuz 2026',
+                'page.intro': 'TankLogic ("biz", "bizi" veya "bizim") modüler tank üreticileri için bir iş uygulamasıdır. Bu Gizlilik Politikası, TankLogic mobil, tablet ve web uygulamalarını ( "Uygulama") kullanırken bilgileri nasıl topladığımızı, kullandığımızı, sakladığımızı ve sildiğimizi açıklar.',
+                's1.title': 'Biz kimiz',
+                's1.p1': 'TankLogic, Uncerta Dev tarafından işletilmektedir. Gizlilikle ilgili sorularınız için bize <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a> adresinden ulaşın.',
+                's2.title': 'Topladığımız bilgiler',
+                's2.intro': 'Uygulamayı nasıl kullandığınıza bağlı olarak şunları işleyebiliriz:',
+                's2.li1': '<strong>Hesap verileri:</strong> ad, e-posta adresi, parola (Firebase Authentication tarafından güvenli şekilde saklanır; parolanızı düz metin olarak saklamayız) ve isteğe bağlı profil fotoğrafı.',
+                's2.li2': '<strong>Kuruluş verileri:</strong> şirket ayarları, tank yapılandırmaları, teklifler, siparişler, malzeme listeleri, üretim kayıtları, fiyatlandırma parametreleri ve Uygulamaya girdiğiniz diğer iş içerikleri.',
+                's2.li3': '<strong>Abonelik ve faturalama durumu:</strong> plan türü, deneme bitiş tarihi ve RevenueCat, Apple App Store veya Google Play üzerinden işlenen satın alma tanımlayıcıları. Tam ödeme kartı bilgilerinizi almayız veya saklamayız.',
+                's2.li4': '<strong>Güvenlik ve oturum verileri:</strong> tek cihaz oturumlarını zorunlu kılmak ve giriş etkinliğinin denetim kaydını tutmak için giriş yaptığınızda cihaz tanımlayıcısı, cihaz adı, işletim sistemi ve genel IP adresi.',
+                's2.li5': '<strong>Teknik veriler:</strong> uygulama sürümü ve cihazınızda yerel olarak saklanan tercihler (tema ve dil gibi).',
+                's3.title': 'Bilgileri nasıl kullanırız',
+                's3.intro': 'Yukarıdaki bilgileri şu amaçlarla kullanırız:',
+                's3.li1': 'hesabınızı ve kuruluş çalışma alanınızı oluşturmak ve yönetmek;',
+                's3.li2': 'tank yapılandırma, teklif, sipariş ve üretim özelliklerini sunmak;',
+                's3.li3': 'abonelikleri işlemek ve doğrulamak;',
+                's3.li4': 'hesapları yetkisiz erişime karşı korumak;',
+                's3.li5': 'destek taleplerine yanıt vermek;',
+                's3.li6': 'yasal yükümlülüklere uymak.',
+                's3.note': 'Verilerinizi reklam profilleri için kullanmayız. Uygulamada Firebase Analytics etkin değildir.',
+                's4.title': 'Hukuki dayanaklar (AEA / Birleşik Krallık kullanıcıları)',
+                's4.intro': 'Uygulanabilir olduğu durumlarda şunlara dayanırız:',
+                's4.li1': 'sözleşmenin ifası (Uygulama ve aboneliklerin sağlanması);',
+                's4.li2': 'meşru menfaatler (güvenlik, dolandırıcılık önleme, hizmet iyileştirme);',
+                's4.li3': 'gerektiğinde rıza (örneğin isteğe bağlı profil fotoğrafı yükleme);',
+                's4.li4': 'uygulanabilir olduğu durumlarda yasal yükümlülük.',
+                's5.title': 'Bilgileri nasıl paylaşırız',
+                's5.intro': 'Verileri yalnızca Uygulamayı işletmemize yardımcı olan hizmet sağlayıcılarıyla paylaşırız:',
+                's5.li1': '<strong>Google Firebase</strong> — kimlik doğrulama, bulut veritabanı, bulut işlevleri ve dosya depolama.',
+                's5.li2': '<strong>RevenueCat</strong> — abonelik yönetimi ve makbuz doğrulama.',
+                's5.li3': '<strong>Apple App Store / Google Play</strong> — mobilde abone olduğunuzda uygulama içi satın alma işlemleri.',
+                's5.li4': '<strong>ipify.org</strong> — oturum güvenlik günlüğü için genel IP adresinizin alınması.',
+                's5.p2': 'Kişisel bilgilerinizi satmayız. Yasalar gerektirdiğinde veya hakları, güvenliği ve emniyeti korumak için bilgileri açıklayabiliriz.',
+                's6.title': 'Veri saklama',
+                's6.p1': 'Kuruluş verilerinizi hesabınız aktif olduğu sürece saklarız. Ücretsiz değerlendirme dönemindeyseniz ve abone olmazsanız, kuruluş verileri Uygulamada açıklanan değerlendirme ve saklama süresinden sonra kaldırılabilir.',
+                's6.p2': 'Hesabınızı Uygulama içinden kalıcı olarak silebilirsiniz (Ayarlar → Hesabı Sil). Silme, kimlik doğrulama hesabınızı ve kuruluş sahipleri için ilişkili şirket verilerini sistemlerimizden kaldırır; kısa teknik yedekleme döngüleri saklı kalır.',
+                's7.title': 'Güvenlik',
+                's7.p1': 'Şifreli aktarım (HTTPS), Firebase güvenlik kuralları ve bir kuruluş içindeki kullanıcı rollerine dayalı erişim kontrolleri dahil olmak üzere endüstri standardı önlemler kullanırız. Hiçbir aktarım veya depolama yöntemi tamamen güvenli değildir.',
+                's8.title': 'Haklarınız',
+                's8.p1': 'Konumunuza bağlı olarak kişisel verilerinize erişme, düzeltme, silme veya dışa aktarma ya da belirli işlemlere itiraz etme veya bunları kısıtlama haklarına sahip olabilirsiniz. Bu hakları kullanmak için <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a> adresine e-posta gönderin.',
+                's9.title': 'Çocuklar',
+                's9.p1': 'TankLogic bir iş uygulamasıdır ve 16 yaş altı çocuklara yönelik değildir. Çocuklardan bilerek kişisel veri toplamayız.',
+                's10.title': 'Uluslararası aktarımlar',
+                's10.p1': 'Verileriniz, sağlayıcılarımız (örneğin Google Cloud) tarafından Avrupa Birliği ve Amerika Birleşik Devletleri dahil bölgelerdeki sunucularda işlenebilir. Yasaların gerektirdiği durumlarda uygun güvencelere dayanırız.',
+                's11.title': 'Bu politikadaki değişiklikler',
+                's11.p1': 'Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Üstteki "Son güncelleme" tarihi en son sürümü yansıtır. Değişikliklerden sonra Uygulamayı kullanmaya devam etmeniz güncellenmiş politikayı kabul ettiğiniz anlamına gelir.',
+                's12.title': 'İletişim',
+                's12.brand': 'Uncerta Dev — TankLogic',
+                's12.email': 'E-posta: <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline">uncertadev@gmail.com</a>',
+                's12.web': 'Web: <a href="https://www.uncerta.dev" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 hover:underline">https://www.uncerta.dev</a>',
+                'footer.rightsHtml': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. Tüm hakları saklıdır.'
+            },
+            de: {
+                'meta.title': 'Datenschutz - TankLogic',
+                'meta.description': 'Datenschutzerklärung für TankLogic von Uncerta Dev.',
+                'page.badge': 'Rechtsdokument',
+                'page.title': 'Datenschutzerklärung',
+                'page.updated': 'Zuletzt aktualisiert: 1. Juli 2026',
+                'page.intro': 'TankLogic („wir“, „uns“ oder „unser“) ist eine Geschäftsanwendung für Hersteller modularer Tanks. Diese Datenschutzerklärung erklärt, wie wir Informationen erheben, nutzen, speichern und löschen, wenn Sie die TankLogic-Apps für Mobil, Tablet und Web (die „App“) nutzen.',
+                's1.title': 'Wer wir sind',
+                's1.p1': 'TankLogic wird von Uncerta Dev betrieben. Bei datenschutzbezogenen Fragen kontaktieren Sie uns unter <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.',
+                's2.title': 'Welche Informationen wir erheben',
+                's2.intro': 'Je nachdem, wie Sie die App nutzen, können wir verarbeiten:',
+                's2.li1': '<strong>Kontodaten:</strong> Name, E-Mail-Adresse, Passwort (sicher von Firebase Authentication gespeichert; wir speichern Ihr Passwort nicht im Klartext) und optionales Profilfoto.',
+                's2.li2': '<strong>Organisationsdaten:</strong> Unternehmenseinstellungen, Tankkonfigurationen, Angebote, Aufträge, Stücklisten, Produktionsaufzeichnungen, Preisparameter und andere Geschäftsinhalte, die Sie in die App eingeben.',
+                's2.li3': '<strong>Abonnement- und Abrechnungsstatus:</strong> Plantyp, Testende und Kaufkennungen, die über RevenueCat, den Apple App Store oder Google Play verarbeitet werden. Wir erhalten oder speichern keine vollständigen Zahlungskartendaten.',
+                's2.li4': '<strong>Sicherheits- und Sitzungsdaten:</strong> Gerätekennung, Gerätename, Betriebssystem und öffentliche IP-Adresse bei der Anmeldung, um Ein-Geräte-Sitzungen durchzusetzen und ein Audit-Protokoll der Anmeldeaktivitäten zu führen.',
+                's2.li5': '<strong>Technische Daten:</strong> App-Version und lokal gespeicherte Einstellungen (z. B. Design und Sprache) auf Ihrem Gerät.',
+                's3.title': 'Wie wir Informationen nutzen',
+                's3.intro': 'Wir nutzen die oben genannten Informationen, um:',
+                's3.li1': 'Ihr Konto und den Organisations-Arbeitsbereich zu erstellen und zu verwalten;',
+                's3.li2': 'Tankkonfiguration, Angebotswesen, Auftrags- und Produktionsfunktionen bereitzustellen;',
+                's3.li3': 'Abonnements zu verarbeiten und zu validieren;',
+                's3.li4': 'Konten vor unbefugtem Zugriff zu schützen;',
+                's3.li5': 'auf Supportanfragen zu reagieren;',
+                's3.li6': 'rechtliche Verpflichtungen zu erfüllen.',
+                's3.note': 'Wir nutzen Ihre Daten nicht für Werbeprofile. Firebase Analytics ist in der App nicht aktiviert.',
+                's4.title': 'Rechtsgrundlagen (Nutzer im EWR / Vereinigten Königreich)',
+                's4.intro': 'Soweit anwendbar, stützen wir uns auf:',
+                's4.li1': 'Vertragserfüllung (Bereitstellung der App und von Abonnements);',
+                's4.li2': 'berechtigte Interessen (Sicherheit, Betrugsprävention, Serviceverbesserung);',
+                's4.li3': 'Einwilligung, wo erforderlich (z. B. optionaler Profilfoto-Upload);',
+                's4.li4': 'rechtliche Verpflichtung, soweit anwendbar.',
+                's5.title': 'Wie wir Informationen weitergeben',
+                's5.intro': 'Wir geben Daten nur an Dienstleister weiter, die uns beim Betrieb der App helfen:',
+                's5.li1': '<strong>Google Firebase</strong> — Authentifizierung, Cloud-Datenbank, Cloud Functions und Dateispeicher.',
+                's5.li2': '<strong>RevenueCat</strong> — Abonnementverwaltung und Belegvalidierung.',
+                's5.li3': '<strong>Apple App Store / Google Play</strong> — Verarbeitung von In-App-Käufen bei Mobile-Abonnements.',
+                's5.li4': '<strong>ipify.org</strong> — Abruf Ihrer öffentlichen IP-Adresse für die Sitzungssicherheitsprotokollierung.',
+                's5.p2': 'Wir verkaufen Ihre personenbezogenen Daten nicht. Wir können Informationen offenlegen, wenn dies gesetzlich erforderlich ist oder zum Schutz von Rechten, Sicherheit und Schutz.',
+                's6.title': 'Datenspeicherung',
+                's6.p1': 'Wir speichern Ihre Organisationsdaten, solange Ihr Konto aktiv ist. Befinden Sie sich in einer kostenlosen Evaluierungsphase und abonnieren nicht, können Organisationsdaten nach der in der App beschriebenen Evaluierungs- und Aufbewahrungsfrist entfernt werden.',
+                's6.p2': 'Sie können Ihr Konto dauerhaft in der App löschen (Einstellungen → Konto löschen). Die Löschung entfernt Ihr Authentifizierungskonto und bei Organisationsinhabern zugehörige Unternehmensdaten aus unseren Systemen, vorbehaltlich kurzer technischer Backup-Zyklen.',
+                's7.title': 'Sicherheit',
+                's7.p1': 'Wir nutzen branchenübliche Maßnahmen einschließlich verschlüsselter Übertragung (HTTPS), Firebase-Sicherheitsregeln und rollenbasierter Zugriffskontrollen innerhalb einer Organisation. Keine Übertragungs- oder Speichermethode ist vollständig sicher.',
+                's8.title': 'Ihre Rechte',
+                's8.p1': 'Je nach Ihrem Standort können Sie Rechte haben, auf Ihre personenbezogenen Daten zuzugreifen, sie zu berichtigen, zu löschen oder zu exportieren oder bestimmten Verarbeitungen zu widersprechen bzw. sie einzuschränken. Zur Ausübung dieser Rechte senden Sie eine E-Mail an <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline font-medium">uncertadev@gmail.com</a>.',
+                's9.title': 'Kinder',
+                's9.p1': 'TankLogic ist eine Geschäftsanwendung und richtet sich nicht an Kinder unter 16 Jahren. Wir erheben wissentlich keine personenbezogenen Daten von Kindern.',
+                's10.title': 'Internationale Übermittlungen',
+                's10.p1': 'Ihre Daten können auf Servern unserer Anbieter (z. B. Google Cloud) in Regionen einschließlich der Europäischen Union und der Vereinigten Staaten verarbeitet werden. Wir stützen uns auf geeignete Garantien, soweit gesetzlich erforderlich.',
+                's11.title': 'Änderungen dieser Richtlinie',
+                's11.p1': 'Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Das Datum „Zuletzt aktualisiert“ oben spiegelt die neueste Version wider. Die fortgesetzte Nutzung der App nach Änderungen bedeutet, dass Sie die aktualisierte Richtlinie akzeptieren.',
+                's12.title': 'Kontakt',
+                's12.brand': 'Uncerta Dev — TankLogic',
+                's12.email': 'E-Mail: <a href="mailto:uncertadev@gmail.com" class="text-cyan-600 dark:text-cyan-400 hover:underline">uncertadev@gmail.com</a>',
+                's12.web': 'Web: <a href="https://www.uncerta.dev" target="_blank" rel="noopener noreferrer" class="text-cyan-600 dark:text-cyan-400 hover:underline">https://www.uncerta.dev</a>',
+                'footer.rightsHtml': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. Alle Rechte vorbehalten.'
+            }
+        });
+    </script>
+    <script src="../js/i18n.js"></script>
 
     <!-- JavaScript for Mobile Menu and Dark/Light Theme Switching -->
     <script>
