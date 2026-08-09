@@ -204,15 +204,13 @@ window.UNCERTA_I18N = {
 
   // ── Turkish ───────────────────────────────────────────────────────────────
   tr: {
-    'nav.web_login': 'Web Giriş',
-    'tl.home.hero.web_login_eyebrow': 'Tarayıcıda aç',
-    'tl.home.hero.web_login': 'Web Giriş',
     'nav.home':            'Uncerta Dev',
     'nav.features':        '\u00d6zellikler',
     'nav.overview':        'Sistem \u00d6zeti',
     'nav.support':         'Destek',
     'nav.privacy':         'Gizlilik Politikas\u0131',
     'nav.terms':           'Kullan\u0131m Ko\u015fullar\u0131',
+    'nav.web_login':       'Web Giri\u015f',
     'a11y.theme_toggle':   'Temay\u0131 De\u011fi\u015ftir',
     'footer.copyright_tl': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> \u2014 TankLogic. T\u00fcm haklar\u0131 sakl\u0131d\u0131r.',
 
@@ -221,6 +219,8 @@ window.UNCERTA_I18N = {
     'tl.home.hero.badge':        'Mod\u00fcler Tank \u00dcretim Paketi',
     'tl.home.hero.title_html':   'Mod\u00fcler Tanklarda <br class="hidden sm:inline" /><span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400">Dijital Kontrol</span>',
     'tl.home.hero.subtitle':     'TankLogic, \u00f6zellikle mod\u00fcler tank \u00fcreticileri i\u00e7in tasarlanm\u0131\u015f kapsaml\u0131 bir i\u015f uygulamas\u0131d\u0131r. Tekliften \u00dcretime t\u00fcm operasyonlar\u0131n\u0131z\u0131 tek platformda y\u00f6netin.',
+    'tl.home.hero.web_login_eyebrow': 'Taray\u0131c\u0131da a\u00e7',
+    'tl.home.hero.web_login':    'Web Giri\u015f',
     'tl.home.dash.title':        'TankLogic Kontrol Paneli v2.4',
     'tl.home.dash.status':       'Durum: Ba\u011fl\u0131 ve Senkronize',
     'tl.home.dash.c1_label':     'Aktif Tank Yap\u0131land\u0131rmas\u0131',
@@ -398,15 +398,13 @@ window.UNCERTA_I18N = {
 
   // ── German ────────────────────────────────────────────────────────────────
   de: {
-    'nav.web_login': 'Web-Login',
-    'tl.home.hero.web_login_eyebrow': 'Im Browser öffnen',
-    'tl.home.hero.web_login': 'Web-Login',
     'nav.home':            'Uncerta Dev',
     'nav.features':        'Funktionen',
     'nav.overview':        'System\u00fcbersicht',
     'nav.support':         'Support',
     'nav.privacy':         'Datenschutz',
     'nav.terms':           'Nutzungsbedingungen',
+    'nav.web_login':       'Web-Login',
     'a11y.theme_toggle':   'Design umschalten',
     'footer.copyright_tl': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> \u2014 TankLogic. Alle Rechte vorbehalten.',
 
@@ -415,6 +413,8 @@ window.UNCERTA_I18N = {
     'tl.home.hero.badge':        'Suite f\u00fcr modulare Tankfertigung',
     'tl.home.hero.title_html':   'Digitale Kontrolle bei <br class="hidden sm:inline" /><span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400">modularen Tanks</span>',
     'tl.home.hero.subtitle':     'TankLogic ist die umfassende Business-Anwendung speziell f\u00fcr Hersteller modularer Tanks. Steuern Sie alle Prozesse vom Angebot bis zur Produktion auf einer Plattform.',
+    'tl.home.hero.web_login_eyebrow': 'Im Browser \u00f6ffnen',
+    'tl.home.hero.web_login':    'Web-Login',
     'tl.home.dash.title':        'TankLogic Kontroll-Dashboard v2.4',
     'tl.home.dash.status':       'Status: Verbunden & Synchronisiert',
     'tl.home.dash.c1_label':     'Aktive Tankkonfiguration',
