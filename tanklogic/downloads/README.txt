@@ -1,7 +1,9 @@
 TankLogic desktop downloads
 ===========================
 
-macOS:  TankLogic-2.3.6-macOS.dmg
-Windows: TankLogic-2.3.6-Windows.zip  (add after building on Windows)
+macOS:   TankLogic-2.3.6-macOS.dmg
+Windows: TankLogic-2.3.6-Windows.exe
 
-Upload the Windows zip into this folder with that exact filename.
+Windows installer is built on Windows with:
+  .\scripts\build-windows-installer.ps1
+from the TankLogic project (requires Inno Setup 6).
