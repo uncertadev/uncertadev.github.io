@@ -14,6 +14,7 @@ window.UNCERTA_I18N = {
     'nav.terms':            'Terms of Use',
     'nav.web_login':        'Web Login',
     'a11y.theme_toggle':    'Toggle Theme',
+    'a11y.lang_switcher':   'Change language',
     'footer.copyright_tl':  '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.',
 
     // ── TankLogic home ──────────────────────────────────────────────────────
@@ -216,6 +217,7 @@ window.UNCERTA_I18N = {
     'nav.terms':           'Kullan\u0131m Ko\u015fullar\u0131',
     'nav.web_login':       'Web Giri\u015f',
     'a11y.theme_toggle':   'Temay\u0131 De\u011fi\u015ftir',
+    'a11y.lang_switcher':  'Dili de\u011fi\u015ftir',
     'footer.copyright_tl': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> \u2014 TankLogic. T\u00fcm haklar\u0131 sakl\u0131d\u0131r.',
 
     'tl.home.meta.title':        'TankLogic - Mod\u00fcler Tank \u00dcretim Yaz\u0131l\u0131m\u0131',
@@ -414,6 +416,7 @@ window.UNCERTA_I18N = {
     'nav.terms':           'Nutzungsbedingungen',
     'nav.web_login':       'Web-Login',
     'a11y.theme_toggle':   'Design umschalten',
+    'a11y.lang_switcher':  'Sprache \u00e4ndern',
     'footer.copyright_tl': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> \u2014 TankLogic. Alle Rechte vorbehalten.',
 
     'tl.home.meta.title':        'TankLogic - Software f\u00fcr modulare Tankproduktion',
