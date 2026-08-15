@@ -8,6 +8,7 @@
   var SUPPORTED = ['en', 'tr', 'de'];
   var ACTIVE = 'px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors bg-white dark:bg-slate-800 text-cyan-700 dark:text-cyan-300 shadow-sm';
   var IDLE = 'px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400';
+  var currentLang = null;
 
   function deviceLang() {
     var list = navigator.languages && navigator.languages.length
@@ -30,7 +31,7 @@
   }
 
   function resolveLang() {
-    return storedLang() || deviceLang();
+    return currentLang || storedLang() || deviceLang();
   }
 
   function dict() {
@@ -49,6 +50,7 @@
 
   function apply() {
     var lang = resolveLang();
+    currentLang = lang;
     document.documentElement.setAttribute('lang', lang);
 
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -97,6 +99,7 @@
 
   function setLang(lang) {
     if (SUPPORTED.indexOf(lang) === -1) return;
+    currentLang = lang;
     try {
       localStorage.setItem(LANG_KEY, lang);
     } catch (err) {}
@@ -109,19 +112,8 @@
 
     document.querySelectorAll('[data-lang-switcher]').forEach(function (root) {
       root.setAttribute('aria-label', label);
-
-      if (!root.getAttribute('data-bound')) {
-        root.addEventListener('click', function (event) {
-          var option = event.target.closest('[data-lang]');
-          if (!option || !root.contains(option)) return;
-          setLang(option.getAttribute('data-lang'));
-        });
-        root.setAttribute('data-bound', '1');
-      }
-
       root.querySelectorAll('[data-lang]').forEach(function (option) {
-        var code = option.getAttribute('data-lang');
-        var active = code === lang;
+        var active = option.getAttribute('data-lang') === lang;
         option.className = active ? ACTIVE : IDLE;
         option.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
@@ -134,6 +126,17 @@
     t: t,
     apply: apply
   };
+
+  document.addEventListener('click', function (event) {
+    var el = event.target;
+    if (!el) return;
+    if (el.nodeType !== 1) el = el.parentElement;
+    if (!el || !el.closest) return;
+    var option = el.closest('[data-lang]');
+    if (!option || !option.closest('[data-lang-switcher]')) return;
+    event.preventDefault();
+    setLang(option.getAttribute('data-lang'));
+  });
 
   function safeApply() {
     try {
