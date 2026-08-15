@@ -1,13 +1,19 @@
 /**
  * Device-language i18n for uncerta.dev
  * First visit follows the device (tr / de / en).
- * A stored localStorage.lang override wins until the user changes it.
+ * A sessionStorage.lang override wins until the tab or browser is closed.
  */
 (function () {
   var LANG_KEY = 'lang';
-  var SUPPORTED = ['en', 'tr', 'de'];
-  var ACTIVE = 'px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors bg-white dark:bg-slate-800 text-cyan-700 dark:text-cyan-300 shadow-sm';
-  var IDLE = 'px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400';
+  try {
+    localStorage.removeItem(LANG_KEY);
+    localStorage.removeItem('theme');
+  } catch (err) {}
+  var SUPPORTED = ['en', 'de', 'tr'];
+  var CODES = { en: 'EN', de: 'DE', tr: 'TR' };
+  var BOX = 'inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border font-mono text-xs font-semibold transition-colors ';
+  var ACTIVE = BOX + 'border-cyan-500/40 bg-white dark:bg-slate-800 text-cyan-700 dark:text-cyan-300 shadow-sm';
+  var IDLE = BOX + 'border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400';
   var currentLang = null;
 
   function deviceLang() {
@@ -24,7 +30,7 @@
 
   function storedLang() {
     try {
-      var value = localStorage.getItem(LANG_KEY);
+      var value = sessionStorage.getItem(LANG_KEY);
       if (SUPPORTED.indexOf(value) !== -1) return value;
     } catch (err) {}
     return null;
@@ -101,9 +107,19 @@
     if (SUPPORTED.indexOf(lang) === -1) return;
     currentLang = lang;
     try {
-      localStorage.setItem(LANG_KEY, lang);
+      sessionStorage.setItem(LANG_KEY, lang);
     } catch (err) {}
+    closeAllMenus();
     apply();
+  }
+
+  function closeAllMenus() {
+    document.querySelectorAll('[data-lang-switcher] .lang-switcher-menu').forEach(function (menu) {
+      menu.classList.add('hidden');
+    });
+    document.querySelectorAll('[data-lang-switcher] .lang-switcher-btn').forEach(function (btn) {
+      btn.setAttribute('aria-expanded', 'false');
+    });
   }
 
   function syncSwitchers() {
@@ -111,11 +127,18 @@
     var label = t('a11y.lang_switcher') || 'Change language';
 
     document.querySelectorAll('[data-lang-switcher]').forEach(function (root) {
-      root.setAttribute('aria-label', label);
+      var btn = root.querySelector('.lang-switcher-btn');
+      var code = root.querySelector('.lang-switcher-code');
+      if (btn) {
+        btn.setAttribute('aria-label', label);
+      }
+      if (code) {
+        code.textContent = CODES[lang] || 'EN';
+      }
       root.querySelectorAll('[data-lang]').forEach(function (option) {
         var active = option.getAttribute('data-lang') === lang;
         option.className = active ? ACTIVE : IDLE;
-        option.setAttribute('aria-pressed', active ? 'true' : 'false');
+        option.setAttribute('aria-selected', active ? 'true' : 'false');
       });
     });
   }
@@ -132,10 +155,34 @@
     if (!el) return;
     if (el.nodeType !== 1) el = el.parentElement;
     if (!el || !el.closest) return;
-    var option = el.closest('[data-lang]');
-    if (!option || !option.closest('[data-lang-switcher]')) return;
-    event.preventDefault();
-    setLang(option.getAttribute('data-lang'));
+
+    var option = el.closest('[data-lang-switcher] [data-lang]');
+    if (option) {
+      event.preventDefault();
+      setLang(option.getAttribute('data-lang'));
+      return;
+    }
+
+    var toggle = el.closest('.lang-switcher-btn');
+    if (toggle) {
+      event.preventDefault();
+      var root = toggle.closest('[data-lang-switcher]');
+      var menu = root && root.querySelector('.lang-switcher-menu');
+      if (!menu) return;
+      var willOpen = menu.classList.contains('hidden');
+      closeAllMenus();
+      if (willOpen) {
+        menu.classList.remove('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+      return;
+    }
+
+    closeAllMenus();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeAllMenus();
   });
 
   function safeApply() {
