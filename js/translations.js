@@ -16,7 +16,7 @@ window.UNCERTA_I18N = {
     'a11y.theme_toggle':    'Toggle Theme',
     'a11y.lang_switcher':   'Change language',
     'footer.copyright_tl':  '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> — TankLogic. All rights reserved.',
-    'footer.copyright_cp':  '&copy; 2026 <a href="../" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> — Coperum. All rights reserved.',
+    'footer.copyright_cp':  '&copy; 2026 <a href="https://www.uncerta.dev/" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> — Coperum. All rights reserved.',
 
     // ── Coperum home ────────────────────────────────────────────────────────
     'cp.home.meta.title':        'Coperum - Manufacturing Configuration Software',
@@ -409,7 +409,7 @@ window.UNCERTA_I18N = {
     'a11y.theme_toggle':   'Temay\u0131 De\u011fi\u015ftir',
     'a11y.lang_switcher':  'Dili de\u011fi\u015ftir',
     'footer.copyright_tl': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> \u2014 TankLogic. T\u00fcm haklar\u0131 sakl\u0131d\u0131r.',
-    'footer.copyright_cp': '&copy; 2026 <a href="../" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> \u2014 Coperum. T\u00fcm haklar\u0131 sakl\u0131d\u0131r.',
+    'footer.copyright_cp': '&copy; 2026 <a href="https://www.uncerta.dev/" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> \u2014 Coperum. T\u00fcm haklar\u0131 sakl\u0131d\u0131r.',
 
     'cp.home.meta.title':        'Coperum - \u00dcretim Yap\u0131land\u0131rma Yaz\u0131l\u0131m\u0131',
     'cp.home.meta.description':  'Coperum, \u00fcreticiler i\u00e7in i\u015f uygulamas\u0131d\u0131r\u2014\u015fablonlardan \u00fcr\u00fcn yap\u0131land\u0131r\u0131n, BOM olu\u015fturun ve mobil, tablet ile web \u00fczerinden teklif haz\u0131rlay\u0131n.',
@@ -794,7 +794,7 @@ window.UNCERTA_I18N = {
     'a11y.theme_toggle':   'Design umschalten',
     'a11y.lang_switcher':  'Sprache \u00e4ndern',
     'footer.copyright_tl': '&copy; 2026 <a href="../" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Uncerta Dev</a> \u2014 TankLogic. Alle Rechte vorbehalten.',
-    'footer.copyright_cp': '&copy; 2026 <a href="../" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> \u2014 Coperum. Alle Rechte vorbehalten.',
+    'footer.copyright_cp': '&copy; 2026 <a href="https://www.uncerta.dev/" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> \u2014 Coperum. Alle Rechte vorbehalten.',
 
     'cp.home.meta.title':        'Coperum - Software f\u00fcr Fertigungskonfiguration',
     'cp.home.meta.description':  'Coperum ist die Business-App f\u00fcr Hersteller\u2014Produkte aus Vorlagen konfigurieren, St\u00fcklisten erzeugen und Angebote auf Mobil, Tablet und Web erstellen.',
