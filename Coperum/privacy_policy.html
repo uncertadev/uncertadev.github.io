@@ -1,0 +1,462 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-i18n-title="cp.privacy.meta.title">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Coperum</title>
+    <meta name="description" content="Privacy Policy for Coperum by Uncerta Dev." data-i18n-content="cp.privacy.meta.description">
+    <link rel="canonical" href="https://www.uncerta.dev/Coperum/privacy_policy.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- Prevent theme flash: system default, manual override via sessionStorage -->
+    <script>
+        (function () {
+            var stored = sessionStorage.getItem('theme');
+            var preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var useDark = stored === 'dark' || (stored !== 'light' && preferDark);
+            document.documentElement.classList.toggle('dark', useDark);
+        })();
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter & JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#3F4A3C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html:not(.i18n-ready) body { visibility: hidden; }
+
+        /* Light mode grid pattern */
+        .bg-grid {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Dark mode grid pattern override */
+        .dark .bg-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Ambient Glow Effect */
+        .glow-emerald {
+            box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.15);
+        }
+
+        .dark .glow-emerald {
+            box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-slate-50 text-slate-900 dark:bg-[#080a0f] dark:text-[#f1f5f9] selection:bg-emerald-500 selection:text-black relative overflow-x-hidden min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+    <!-- Ambient Gradient Backgrounds -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="fixed -top-40 -left-40 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed top-1/2 -right-40 w-96 h-96 bg-lime-500/10 dark:bg-lime-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-[#080a0f]/80 border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <img src="images/logo.png" alt="Coperum" width="40" height="40" class="w-10 h-10 rounded-xl shadow-lg shadow-emerald-500/25 group-hover:scale-105 transition-transform">
+                <span class="text-2xl font-black tracking-tight text-emerald-700 dark:text-emerald-400 font-mono">Coperum</span>
+            </a>
+
+            <!-- Navigation Links & Theme Switcher -->
+            <div class="hidden xl:flex items-center gap-4 xl:gap-5 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="../" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.home">Uncerta Dev</a>
+                <a href="index.html#features" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.features">Features</a>
+                <a href="index.html#overview" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.overview">System Overview</a>
+                <a href="support.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.support">Support</a>
+                <a href="privacy_policy.html" class="text-emerald-600 dark:text-emerald-400 font-semibold transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
+                <a href="terms_of_use.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
+                <a href="app/" class="px-3 py-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors font-semibold" data-i18n="nav.web_login">Web Login</a>
+                
+                <div class="relative shrink-0" data-lang-switcher>
+                    <button type="button" class="lang-switcher-btn inline-flex items-center gap-1 min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-mono text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label:a11y.lang_switcher" aria-label="Change language">
+                        <span class="lang-switcher-code">EN</span>
+                        <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="lang-switcher-menu hidden absolute right-0 top-full mt-1.5 z-[70] flex flex-col gap-1.5" role="listbox">
+                        <button type="button" data-lang="en" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-emerald-500/40 bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 shadow-sm font-mono text-xs font-semibold">EN</button>
+                        <button type="button" data-lang="de" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">DE</button>
+                        <button type="button" data-lang="tr" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">TR</button>
+                    </div>
+                </div>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme_toggle" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all">
+                    <!-- Sun Icon (shows in Dark mode) -->
+                    <svg id="theme-toggle-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <!-- Moon Icon (shows in Light mode) -->
+                    <svg id="theme-toggle-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Action Controls -->
+            <div class="flex items-center gap-2 xl:hidden">
+                <a href="app/" class="hidden sm:inline-flex items-center px-2.5 py-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors font-semibold text-xs shrink-0" data-i18n="nav.web_login">Web Login</a>
+                <div class="relative shrink-0" data-lang-switcher>
+                    <button type="button" class="lang-switcher-btn inline-flex items-center gap-1 min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-mono text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label:a11y.lang_switcher" aria-label="Change language">
+                        <span class="lang-switcher-code">EN</span>
+                        <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="lang-switcher-menu hidden absolute right-0 top-full mt-1.5 z-[70] flex flex-col gap-1.5" role="listbox">
+                        <button type="button" data-lang="en" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-emerald-500/40 bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 shadow-sm font-mono text-xs font-semibold">EN</button>
+                        <button type="button" data-lang="de" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">DE</button>
+                        <button type="button" data-lang="tr" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">TR</button>
+                    </div>
+                </div>
+                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme_toggle" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+                    <svg id="theme-toggle-sun-mobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg id="theme-toggle-moon-mobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+
+                <button id="menu-btn" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-slate-100 dark:bg-[#0c0e17] border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex-col gap-4 text-sm font-medium">
+            <a href="../" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.home">Uncerta Dev</a>
+            <a href="index.html#features" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.features">Features</a>
+            <a href="index.html#overview" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.overview">System Overview</a>
+            <a href="support.html" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.support">Support</a>
+            <a href="privacy_policy.html" class="text-emerald-600 dark:text-emerald-400 font-semibold py-1" data-i18n="nav.privacy">Privacy Policy</a>
+            <a href="terms_of_use.html" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.terms">Terms of Use</a>
+            <a href="app/" class="text-emerald-700 dark:text-emerald-300 font-semibold py-1" data-i18n="nav.web_login">Web Login</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 py-12 md:py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 w-full">
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0c0f18] p-6 sm:p-10 md:p-12 shadow-xl dark:shadow-2xl glow-emerald transition-colors">
+            
+            <!-- Header Badge & Title -->
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-8 mb-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400"></span>
+                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-300" data-i18n="cp.privacy.page.badge">Legal Document</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white" data-i18n="cp.privacy.page.title">
+                    Privacy Policy
+                </h1>
+                <p class="mt-3 text-xs sm:text-sm font-mono text-emerald-700 dark:text-emerald-400" data-i18n="cp.privacy.page.updated">
+                    Last updated: July 1, 2026
+                </p>
+            </div>
+
+            <!-- Document Body Content -->
+            <div class="space-y-8 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                
+                <p class="text-base sm:text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed" data-i18n="cp.privacy.page.intro">
+                    Coperum ("we", "us", or "our") is a business application for manufacturers. This Privacy Policy explains how we collect, use, store, and delete information when you use the Coperum mobile, tablet, and web applications (the "App").
+                </p>
+
+                <!-- Section 1 -->
+                <section class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">01</span>
+                        <span data-i18n="cp.privacy.s01_title">Who we are</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n-html="cp.privacy.s01_body_html">
+                        Coperum is operated by Uncerta Dev. For privacy-related questions, contact us at 
+                        <a href="mailto:uncertadev@gmail.com" class="text-emerald-600 dark:text-emerald-400 hover:underline font-medium">uncertadev@gmail.com</a>.
+                    </p>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">02</span>
+                        <span data-i18n="cp.privacy.s02_title">Information we collect</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s02_intro">Depending on how you use the App, we may process:</p>
+                    <ul class="pl-0 sm:pl-11 space-y-2.5 list-none">
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s02_li1"><strong>Account data:</strong> name, email address, password (stored securely by Firebase Authentication; we do not store your password in plain text), and optional profile photo.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s02_li2"><strong>Organization data:</strong> company settings, product templates, configurations, offers, orders, bills of materials, production records, pricing parameters, and other business content you enter into the App.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s02_li3"><strong>Subscription and billing status:</strong> plan type, trial end date, and purchase identifiers processed through RevenueCat, Apple App Store, or Google Play. We do not receive or store your full payment card details.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s02_li4"><strong>Security and session data:</strong> device identifier, device name, operating system, and public IP address when you sign in, to enforce single-device sessions and maintain an audit trail of sign-in activity.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s02_li5"><strong>Technical data:</strong> app version and locally stored preferences (such as theme and language) on your device.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">03</span>
+                        <span data-i18n="cp.privacy.s03_title">How we use information</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s03_intro">We use the information above to:</p>
+                    <ul class="pl-0 sm:pl-11 space-y-2 list-none">
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s03_li1">create and manage your account and organization workspace;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s03_li2">provide product configuration, quoting, order, and production features;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s03_li3">process and validate subscriptions;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s03_li4">protect accounts against unauthorized access;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s03_li5">respond to support requests;</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s03_li6">comply with legal obligations.</span></li>
+                    </ul>
+                    <div class="pl-0 sm:pl-11">
+                        <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm font-medium" data-i18n="cp.privacy.s03_note">
+                            We do not use your data for advertising profiles. Firebase Analytics is not enabled in the App.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">04</span>
+                        <span data-i18n="cp.privacy.s04_title">Legal bases (EEA / UK users)</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s04_intro">Where applicable, we rely on:</p>
+                    <ul class="pl-0 sm:pl-11 space-y-2 list-none">
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s04_li1">performance of a contract (providing the App and subscriptions);</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s04_li2">legitimate interests (security, fraud prevention, service improvement);</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s04_li3">consent where required (for example, optional profile photo upload);</span></li>
+                        <li class="flex items-start gap-3"><span class="text-emerald-500 mt-1">•</span><span data-i18n="cp.privacy.s04_li4">legal obligation where applicable.</span></li>
+                    </ul>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">05</span>
+                        <span data-i18n="cp.privacy.s05_title">How we share information</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s05_intro">We share data only with service providers that help us operate the App:</p>
+                    <ul class="pl-0 sm:pl-11 space-y-2.5 list-none">
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s05_li1"><strong>Google Firebase</strong> — authentication, cloud database, cloud functions, and file storage.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s05_li2"><strong>RevenueCat</strong> — subscription management and receipt validation.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s05_li3"><strong>Apple App Store / Google Play</strong> — in-app purchase processing when you subscribe on mobile.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-emerald-500 mt-1">•</span>
+                            <span data-i18n-html="cp.privacy.s05_li4"><strong>ipify.org</strong> — retrieval of your public IP address for session security logging.</span>
+                        </li>
+                    </ul>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s05_p2">
+                        We do not sell your personal information. We may disclose information if required by law or to protect rights, safety, and security.
+                    </p>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">06</span>
+                        <span data-i18n="cp.privacy.s06_title">Data retention</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s06_p1">
+                        We retain your organization data while your account is active. If you are on a free evaluation period and do not subscribe, organization data may be removed after the evaluation and retention period described in the App.
+                    </p>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s06_p2">
+                        You can permanently delete your account from within the App (Settings → Delete Account). Deletion removes your authentication account and, for organization owners, associated company data from our systems, subject to short technical backup cycles.
+                    </p>
+                </section>
+
+                <!-- Section 7 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">07</span>
+                        <span data-i18n="cp.privacy.s07_title">Security</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s07_p1">
+                        We use industry-standard measures including encrypted transport (HTTPS), Firebase security rules, and access controls based on user roles within an organization. No method of transmission or storage is completely secure.
+                    </p>
+                </section>
+
+                <!-- Section 8 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">08</span>
+                        <span data-i18n="cp.privacy.s08_title">Your rights</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n-html="cp.privacy.s08_body_html">
+                        Depending on your location, you may have rights to access, correct, delete, or export your personal data, or to object to or restrict certain processing. To exercise these rights, email 
+                        <a href="mailto:uncertadev@gmail.com" class="text-emerald-600 dark:text-emerald-400 hover:underline font-medium">uncertadev@gmail.com</a>.
+                    </p>
+                </section>
+
+                <!-- Section 9 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">09</span>
+                        <span data-i18n="cp.privacy.s09_title">Children</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s09_p1">
+                        Coperum is a business application and is not directed to children under 16. We do not knowingly collect personal data from children.
+                    </p>
+                </section>
+
+                <!-- Section 10 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">10</span>
+                        <span data-i18n="cp.privacy.s10_title">International transfers</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s10_p1">
+                        Your data may be processed on servers operated by our providers (such as Google Cloud) in regions including the European Union and the United States. We rely on appropriate safeguards where required by law.
+                    </p>
+                </section>
+
+                <!-- Section 11 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">11</span>
+                        <span data-i18n="cp.privacy.s11_title">Changes to this policy</span>
+                    </h2>
+                    <p class="pl-0 sm:pl-11" data-i18n="cp.privacy.s11_p1">
+                        We may update this Privacy Policy from time to time. The "Last updated" date at the top will reflect the latest version. Continued use of the App after changes means you accept the updated policy.
+                    </p>
+                </section>
+
+                <!-- Section 12 -->
+                <section class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="text-xs font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">12</span>
+                        <span data-i18n="cp.privacy.s12_title">Contact</span>
+                    </h2>
+                    <div class="pl-0 sm:pl-11">
+                        <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 font-mono text-xs sm:text-sm space-y-1">
+                            <div class="font-bold text-slate-900 dark:text-white text-base font-sans mb-1" data-i18n="cp.privacy.s12_name">Uncerta Dev — Coperum</div>
+                            <div><span data-i18n="cp.privacy.s12_email_label">Email:</span> <a href="mailto:uncertadev@gmail.com" class="text-emerald-600 dark:text-emerald-400 hover:underline">uncertadev@gmail.com</a></div>
+                            <div><span data-i18n="cp.privacy.s12_web_label">Web:</span> <a href="https://www.uncerta.dev" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 hover:underline">https://www.uncerta.dev</a></div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#05060a] py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Brand & Copyright -->
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-emerald-700 dark:text-emerald-400 font-mono text-base">Coperum</span>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <span class="text-xs sm:text-sm" data-i18n-html="footer.copyright_cp">&copy; 2026 <a href="../" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> — Coperum. All rights reserved.</span>
+            </div>
+
+            <!-- Footer Compliance Links -->
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="privacy_policy.html" class="text-emerald-600 dark:text-emerald-400 font-semibold transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <a href="terms_of_use.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <a href="support.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.support">Support</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/i18n.js?v=5"></script>
+
+    <!-- JavaScript for Mobile Menu and Dark/Light Theme Switching -->
+    <script>
+        // Mobile Drawer Elements
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyTheme(useDark) {
+            document.documentElement.classList.toggle('dark', useDark);
+        }
+
+        function toggleTheme() {
+            const nextIsDark = !document.documentElement.classList.contains('dark');
+            applyTheme(nextIsDark);
+            sessionStorage.setItem('theme', nextIsDark ? 'dark' : 'light');
+        }
+
+        // Follow OS theme until the user chooses manually
+        systemThemeQuery.addEventListener('change', (event) => {
+            if (sessionStorage.getItem('theme')) return;
+            applyTheme(event.matches);
+        });
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobileBtn.addEventListener('click', toggleTheme);
+    </script>
+
+</body>
+</html>

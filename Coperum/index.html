@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-i18n-title="cp.home.meta.title">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coperum - Manufacturing Configuration Software</title>
+    <meta name="description" content="Coperum is the business app for manufacturers—configure products, generate BOMs, and create quotes on mobile, tablet, and web." data-i18n-content="cp.home.meta.description">
+    <link rel="canonical" href="https://www.uncerta.dev/Coperum/">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- Prevent theme flash: system default, manual override via sessionStorage -->
+    <script>
+        (function () {
+            var stored = sessionStorage.getItem('theme');
+            var preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var useDark = stored === 'dark' || (stored !== 'light' && preferDark);
+            document.documentElement.classList.toggle('dark', useDark);
+        })();
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#3F4A3C',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html:not(.i18n-ready) body { visibility: hidden; }
+
+        /* Light mode grid pattern */
+        .bg-grid {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Dark mode grid pattern override */
+        .dark .bg-grid {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Ambient Glow Effect */
+        .glow-emerald {
+            box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.15);
+        }
+
+        .dark .glow-emerald {
+            box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+        }
+        
+        .glow-card {
+            transition: all 0.3s ease;
+        }
+        
+        .glow-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .dark .glow-card:hover {
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-slate-50 text-slate-900 dark:bg-[#080a0f] dark:text-[#f1f5f9] selection:bg-emerald-500 selection:text-black relative overflow-x-hidden min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+    <!-- Ambient Gradient Backgrounds -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="fixed -top-40 -left-40 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed top-1/2 -right-40 w-96 h-96 bg-lime-500/10 dark:bg-lime-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-[#080a0f]/80 border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <img src="images/logo.png" alt="Coperum" width="40" height="40" class="w-10 h-10 rounded-xl shadow-lg shadow-emerald-500/25 group-hover:scale-105 transition-transform">
+                <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white font-mono">
+                    <span class="text-emerald-700 dark:text-emerald-400">Coperum</span>
+                </span>
+            </a>
+
+            <!-- Navigation Links & Theme Switcher -->
+            <div class="hidden xl:flex items-center gap-4 xl:gap-5 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="../" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.home">Uncerta Dev</a>
+                <a href="#features" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.features">Features</a>
+                <a href="#overview" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.overview">System Overview</a>
+                <a href="support.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.support">Support</a>
+                <a href="privacy_policy.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
+                <a href="terms_of_use.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
+                <a href="app/" class="px-3 py-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors font-semibold" data-i18n="nav.web_login">Web Login</a>
+                
+                <div class="relative shrink-0" data-lang-switcher>
+                    <button type="button" class="lang-switcher-btn inline-flex items-center gap-1 min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-mono text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label:a11y.lang_switcher" aria-label="Change language">
+                        <span class="lang-switcher-code">EN</span>
+                        <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="lang-switcher-menu hidden absolute right-0 top-full mt-1.5 z-[70] flex flex-col gap-1.5" role="listbox">
+                        <button type="button" data-lang="en" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-emerald-500/40 bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 shadow-sm font-mono text-xs font-semibold">EN</button>
+                        <button type="button" data-lang="de" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">DE</button>
+                        <button type="button" data-lang="tr" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">TR</button>
+                    </div>
+                </div>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme_toggle" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all">
+                    <!-- Sun Icon (shows in Dark mode) -->
+                    <svg id="theme-toggle-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <!-- Moon Icon (shows in Light mode) -->
+                    <svg id="theme-toggle-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Action Controls -->
+            <div class="flex items-center gap-2 xl:hidden">
+                <a href="app/" class="hidden sm:inline-flex items-center px-2.5 py-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors font-semibold text-xs shrink-0" data-i18n="nav.web_login">Web Login</a>
+                <div class="relative shrink-0" data-lang-switcher>
+                    <button type="button" class="lang-switcher-btn inline-flex items-center gap-1 min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all font-mono text-xs font-semibold" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label:a11y.lang_switcher" aria-label="Change language">
+                        <span class="lang-switcher-code">EN</span>
+                        <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="lang-switcher-menu hidden absolute right-0 top-full mt-1.5 z-[70] flex flex-col gap-1.5" role="listbox">
+                        <button type="button" data-lang="en" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-emerald-500/40 bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 shadow-sm font-mono text-xs font-semibold">EN</button>
+                        <button type="button" data-lang="de" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">DE</button>
+                        <button type="button" data-lang="tr" class="inline-flex items-center justify-center min-w-[2.75rem] px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-mono text-xs font-semibold">TR</button>
+                    </div>
+                </div>
+                <button id="theme-toggle-mobile" type="button" aria-label="Toggle Theme" data-i18n-attr="aria-label:a11y.theme_toggle" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+                    <svg id="theme-toggle-sun-mobile" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg id="theme-toggle-moon-mobile" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+
+                <button id="menu-btn" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-slate-100 dark:bg-[#0c0e17] border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex-col gap-4 text-sm font-medium">
+            <a href="../" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.home">Uncerta Dev</a>
+            <a href="#features" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.features">Features</a>
+            <a href="#overview" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.overview">System Overview</a>
+            <a href="support.html" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.support">Support</a>
+            <a href="privacy_policy.html" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.privacy">Privacy Policy</a>
+            <a href="terms_of_use.html" class="text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 py-1" data-i18n="nav.terms">Terms of Use</a>
+            <a href="app/" class="text-emerald-700 dark:text-emerald-300 font-semibold py-1" data-i18n="nav.web_login">Web Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative z-10">
+        <section class="pt-16 pb-20 md:pt-24 md:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-md mb-8">
+                    <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-300" data-i18n="cp.home.hero.badge">Product Configuration Suite</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]" data-i18n-html="cp.home.hero.title_html">
+                    Configure & Quote <br class="hidden sm:inline" />
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-700 via-teal-600 to-lime-600 dark:from-emerald-400 dark:via-teal-400 dark:to-lime-400">
+                        Configurable Products
+                    </span>
+                </h1>
+
+                <!-- Subtitle Paragraph -->
+                <p class="mt-6 text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed" data-i18n="cp.home.hero.subtitle">
+                    Coperum is the comprehensive business application designed specifically for manufacturers. Seamlessly manage all your operations from quotation to production, all on a single platform.
+                </p>
+
+                <!-- Store Badges -->
+                <div class="mt-10 flex flex-col items-center justify-center gap-4">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+                        <!-- App Store Badge -->
+                        <a href="https://apps.apple.com/app/Coperum/id6783915457" target="_blank" rel="noopener noreferrer" class="w-full sm:w-56 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-emerald-500/50 text-slate-900 dark:text-white transition-all flex items-center justify-center gap-3 group shadow-md dark:shadow-lg">
+                            <svg class="w-8 h-8 fill-current text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" viewBox="0 0 384 512" aria-hidden="true">
+                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                            </svg>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400">Download on the</div>
+                                <div class="text-base font-bold text-slate-900 dark:text-white tracking-tight leading-none mt-0.5">App Store</div>
+                            </div>
+                        </a>
+
+                        <!-- Google Play Badge -->
+                        <a href="https://play.google.com/store/apps/details?id=com.uncertadev.coperum" target="_blank" rel="noopener noreferrer" class="w-full sm:w-56 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-emerald-500/50 text-slate-900 dark:text-white transition-all flex items-center justify-center gap-3 group shadow-md dark:shadow-lg">
+                            <svg class="w-7 h-7 fill-current text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" viewBox="0 0 512 512">
+                                <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                            </svg>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400">GET IT ON</div>
+                                <div class="text-base font-bold text-slate-900 dark:text-white tracking-tight leading-none mt-0.5">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+                        <!-- macOS Download -->
+                        <a href="downloads/Coperum-1.0.0-macOS.dmg" download class="w-full sm:w-56 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-emerald-500/50 text-slate-900 dark:text-white transition-all flex items-center justify-center gap-3 group shadow-md dark:shadow-lg">
+                            <svg class="w-7 h-7 fill-current text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" viewBox="0 0 384 512" aria-hidden="true">
+                                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                            </svg>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400" data-i18n="cp.home.hero.macos_eyebrow">Download for</div>
+                                <div class="text-base font-bold text-slate-900 dark:text-white tracking-tight leading-none mt-0.5" data-i18n="cp.home.hero.macos">macOS</div>
+                            </div>
+                        </a>
+
+                        <!-- Windows Download -->
+                        <a href="downloads/Coperum-1.0.0-Windows.exe" download class="w-full sm:w-56 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700/80 bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-emerald-500/50 text-slate-900 dark:text-white transition-all flex items-center justify-center gap-3 group shadow-md dark:shadow-lg">
+                            <svg class="w-7 h-7 fill-current text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" viewBox="0 0 448 512" aria-hidden="true">
+                                <path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/>
+                            </svg>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400" data-i18n="cp.home.hero.windows_eyebrow">Download for</div>
+                                <div class="text-base font-bold text-slate-900 dark:text-white tracking-tight leading-none mt-0.5" data-i18n="cp.home.hero.windows">Windows</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flex justify-center w-full">
+                        <!-- Web Login -->
+                        <a href="app/" class="w-full sm:w-56 px-6 py-3.5 rounded-xl border border-emerald-500/40 bg-emerald-600 hover:bg-emerald-500 text-white transition-all flex items-center justify-center gap-3 group shadow-md shadow-emerald-600/20">
+                            <svg class="w-7 h-7 fill-none stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase font-mono tracking-wider text-emerald-100/90" data-i18n="cp.home.hero.web_login_eyebrow">Open in browser</div>
+                                <div class="text-base font-bold tracking-tight leading-none mt-0.5" data-i18n="cp.home.hero.web_login">Web Login</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Interactive UI Preview Showcase -->
+        <section id="overview" class="pb-20 max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c0f18] p-3 sm:p-5 shadow-xl dark:shadow-2xl glow-emerald overflow-hidden transition-colors">
+                
+                <!-- Mock Header Bar -->
+                <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800/80 px-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                        <span class="ml-2 text-xs font-mono text-slate-400 dark:text-slate-500 hidden sm:inline" data-i18n="cp.home.dash.title">Coperum Control Dashboard v2.4</span>
+                    </div>
+                    <div class="text-xs font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20" data-i18n="cp.home.dash.status">
+                        Status: Connected & Synchronized
+                    </div>
+                </div>
+
+                <!-- Mock Dashboard Visual -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+                    
+                    <!-- Card 1 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                        <div class="text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1" data-i18n="cp.home.dash.c1_label">Active Product Template</div>
+                        <div class="text-lg font-bold text-slate-900 dark:text-white font-sans" data-i18n="cp.home.dash.c1_title">Fire Cabinet Module #4082</div>
+                        <div class="mt-3 space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c1_dim">Dimensions:</span><span class="text-emerald-600 dark:text-emerald-400 font-semibold">yangin_dolabi</span></div>
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c1_cap">Capacity:</span><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Standard</span></div>
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c1_panel">Panel Type:</span><span class="text-slate-900 dark:text-slate-100 font-semibold" data-i18n="cp.home.dash.c1_panel_val">Hot Pressed Stainless</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                        <div class="text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1" data-i18n="cp.home.dash.c2_label">Calculated Costing & Quote</div>
+                        <div class="text-lg font-bold text-emerald-600 dark:text-emerald-400 font-sans" data-i18n="cp.home.dash.c2_title">Instant Quotation Ready</div>
+                        <div class="mt-3 space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c2_material">Material Cost:</span><span class="text-slate-900 dark:text-slate-100 font-semibold" data-i18n="cp.home.dash.c2_material_val">Calculated</span></div>
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c2_panels">Panel Count:</span><span class="text-emerald-600 dark:text-emerald-400 font-semibold" data-i18n="cp.home.dash.c2_panels_val">116 Panels</span></div>
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c2_margin">Margin Status:</span><span class="text-emerald-600 dark:text-emerald-400 font-semibold" data-i18n="cp.home.dash.c2_margin_val">Optimal (+24%)</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800">
+                        <div class="text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1" data-i18n="cp.home.dash.c3_label">Automated Production BOM</div>
+                        <div class="text-lg font-bold text-blue-600 dark:text-blue-400 font-sans" data-i18n="cp.home.dash.c3_title">Floor Ready Transfer</div>
+                        <div class="mt-3 space-y-1.5 text-slate-600 dark:text-slate-300">
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c3_bolts">Hardware & Bolts:</span><span class="text-emerald-600 dark:text-emerald-400 font-semibold" data-i18n="cp.home.dash.c3_bolts_val">840 Sets</span></div>
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c3_rods">Tie Rods:</span><span class="text-emerald-600 dark:text-emerald-400 font-semibold" data-i18n="cp.home.dash.c3_rods_val">32 Units</span></div>
+                            <div class="flex justify-between"><span data-i18n="cp.home.dash.c3_status">Status:</span><span class="text-blue-600 dark:text-blue-400 font-semibold" data-i18n="cp.home.dash.c3_status_val">Synced to Mobile</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Core Features Section -->
+        <section id="features" class="py-20 bg-slate-100/70 dark:bg-[#06080d] border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-mono font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20" data-i18n="cp.home.feat.badge">
+                        Core Capabilities
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-4 tracking-tight" data-i18n="cp.home.feat.title">
+                        Built for Configurable Manufacturing
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base" data-i18n="cp.home.feat.subtitle">
+                        Eliminate manual calculation errors and streamline your complete shop-floor workflow.
+                    </p>
+                </div>
+
+                <!-- Features Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Feature Card 1 -->
+                    <div class="glow-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gradient-to-b dark:from-slate-900/80 dark:to-slate-950/60 shadow-md dark:shadow-none">
+                        <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-2xl mb-6 shadow-inner">
+                            ⚙️
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="cp.home.feat.f1_title">Configuration & Costing</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed" data-i18n="cp.home.feat.f1_desc">
+                            Instantly generate accurate, error-free quotes based on specific customer demands and dynamic pricing parameters.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="glow-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gradient-to-b dark:from-slate-900/80 dark:to-slate-950/60 shadow-md dark:shadow-none">
+                        <div class="w-14 h-14 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-2xl mb-6 shadow-inner">
+                            📋
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="cp.home.feat.f2_title">Automated BOM Generation</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed" data-i18n="cp.home.feat.f2_desc">
+                            Automatically calculate detailed Bill of Materials for your orders and transfer them seamlessly to the production floor.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="glow-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gradient-to-b dark:from-slate-900/80 dark:to-slate-950/60 shadow-md dark:shadow-none">
+                        <div class="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-2xl mb-6 shadow-inner">
+                            📱
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="cp.home.feat.f3_title">Multi-Platform Access</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed" data-i18n="cp.home.feat.f3_desc">
+                            Access your critical data anywhere—in the office or on the shop floor—with synchronized mobile, tablet, and web interfaces.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Operation Workflow Timeline -->
+        <section class="py-20 border-t border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#080a0f] transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div>
+                        <span class="text-xs font-mono uppercase text-emerald-700 dark:text-emerald-400 font-semibold tracking-wider" data-i18n="cp.home.wf.badge">End-to-End Control</span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-2" data-i18n="cp.home.wf.title">Single Platform for Quote-to-Production</h2>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mt-3 leading-relaxed" data-i18n="cp.home.wf.subtitle">
+                            From customer inquiry and instant quotation to structural panel planning and shop-floor dispatch.
+                        </p>
+                    </div>
+                    
+                    <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-sm dark:shadow-none">
+                            <div class="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold" data-i18n="cp.home.wf.s1_step">STEP 01</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white mt-1" data-i18n="cp.home.wf.s1_title">Configure & Quote</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 mt-2" data-i18n="cp.home.wf.s1_desc">Select a template, set parameters and variations for instant pricing and margin calculation.</div>
+                        </div>
+                        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-sm dark:shadow-none">
+                            <div class="text-xs font-mono text-blue-700 dark:text-blue-400 font-bold" data-i18n="cp.home.wf.s2_step">STEP 02</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white mt-1" data-i18n="cp.home.wf.s2_title">Export BOM & Parts</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 mt-2" data-i18n="cp.home.wf.s2_desc">Exact part quantities and BOM lines generated automatically from template rules.</div>
+                        </div>
+                        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-900/40 shadow-sm dark:shadow-none">
+                            <div class="text-xs font-mono text-indigo-700 dark:text-indigo-400 font-bold" data-i18n="cp.home.wf.s3_step">STEP 03</div>
+                            <div class="text-base font-bold text-slate-900 dark:text-white mt-1" data-i18n="cp.home.wf.s3_title">Floor Execution</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 mt-2" data-i18n="cp.home.wf.s3_desc">Assembly technicians access real-time instructions and specs on mobile or tablet devices.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-[#05060a] py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Brand & Copyright -->
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-emerald-700 dark:text-emerald-400 font-mono text-base">Coperum</span>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <span class="text-xs sm:text-sm" data-i18n-html="footer.copyright_cp">&copy; 2026 <a href="../" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Uncerta Dev</a> — Coperum. All rights reserved.</span>
+            </div>
+
+            <!-- Footer Compliance Links -->
+            <div class="flex items-center gap-4 text-xs font-medium">
+                <a href="privacy_policy.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.privacy">Privacy Policy</a>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <a href="terms_of_use.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.terms">Terms of Use</a>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                <a href="support.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" data-i18n="nav.support">Support</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="../js/translations.js"></script>
+    <script src="../js/i18n.js?v=5"></script>
+
+    <!-- JavaScript for Mobile Menu and Dark/Light Theme Switching -->
+    <script>
+        // Mobile Drawer Elements
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function applyTheme(useDark) {
+            document.documentElement.classList.toggle('dark', useDark);
+        }
+
+        function toggleTheme() {
+            const nextIsDark = !document.documentElement.classList.contains('dark');
+            applyTheme(nextIsDark);
+            sessionStorage.setItem('theme', nextIsDark ? 'dark' : 'light');
+        }
+
+        // Follow OS theme until the user chooses manually
+        systemThemeQuery.addEventListener('change', (event) => {
+            if (sessionStorage.getItem('theme')) return;
+            applyTheme(event.matches);
+        });
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleMobileBtn.addEventListener('click', toggleTheme);
+    </script>
+
+</body>
+</html>
