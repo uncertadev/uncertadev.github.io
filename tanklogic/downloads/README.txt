@@ -1,7 +1,7 @@
 TankLogic desktop downloads
 ===========================
 
-macOS:   TankLogic-2.3.21-macOS.dmg
+macOS:   TankLogic-2.3.22-macOS.dmg
 Windows: TankLogic-2.3.21-Windows.exe
 
 Windows installer is built on Windows with:
