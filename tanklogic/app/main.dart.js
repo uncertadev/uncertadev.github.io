@@ -184765,7 +184765,7 @@ A.bit.prototype={
 ue(){var s=0,r=A.k(t.RB),q,p=this,o,n
 var $async$ue=A.f(function(a,b){if(a===1)return A.h(b,r)
 for(;;)switch(s){case 0:s=3
-return A.c(A.j6(A.a([p.FH("https://api.frankfurter.app/latest?from=USD&to=TRY"),p.FH("https://api.frankfurter.app/latest?from=EUR&to=TRY")],t.MP),t.V),$async$ue)
+return A.c(A.j6(A.a([p.FH("https://api.frankfurter.dev/v1/latest?base=USD&symbols=TRY"),p.FH("https://api.frankfurter.dev/v1/latest?base=EUR&symbols=TRY")],t.MP),t.V),$async$ue)
 case 3:o=b
 n=J.aE(o)
 q=new A.AS(n.h(o,0),n.h(o,1),new A.az(Date.now(),0,!1).cO(),B.wH,B.wH)
